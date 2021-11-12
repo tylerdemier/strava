@@ -73,5 +73,6 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		// TODO Auto-generated method stub
 		return null;
 	}
+}
 	
 
