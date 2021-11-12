@@ -1,6 +1,9 @@
 package es.deusto.ingenieria.sd.auctions.server.data.dto;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 //This class implements DTO pattern
 public class UserDTO implements Serializable {	
@@ -23,5 +26,18 @@ public class UserDTO implements Serializable {
 	
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuffer result = new StringBuffer();
+		
+		result.append(this.nickname);
+		result.append(" # '");
+		result.append(this.email);
+		result.append("' # Email: ");
+		result.append(this.email);
+		
+		return result.toString();
 	}
 }
