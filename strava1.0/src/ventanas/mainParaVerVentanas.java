@@ -6,7 +6,8 @@ public class mainParaVerVentanas {
 		//new VentanaIniciarSesion();
 		//new VentanaPrincipal();
 		//new VentanaPerfil();
-		new VentanaCrearReto();
+		//new VentanaCrearReto();
+		new VentanaCrearEntrenamiento();
 
 	}
 

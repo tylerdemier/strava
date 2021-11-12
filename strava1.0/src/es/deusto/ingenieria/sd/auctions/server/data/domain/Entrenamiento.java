@@ -14,9 +14,7 @@ public class Entrenamiento {
 	private float distancia;
 	private Date fechaIni;	
 	private long horaIni;
-	private long duracion;
-	private User hacedor;
-	
+	private long duracion;	
 	
 	public String getTitulo() {
 		return titulo;
@@ -66,13 +64,7 @@ public class Entrenamiento {
 		this.duracion = duracion;
 	}
 
-	public User getHacedor() {
-		return hacedor;
-	}
 
-	public void setHacedor(User hacedor) {
-		this.hacedor = hacedor;
-	}
 
 	@Override
 	public String toString() {
@@ -96,8 +88,8 @@ public class Entrenamiento {
 		result.append(numberFormatter.format(this.horaIni));
 		result.append("' # Duracion: ");
 		result.append(numberFormatter.format(this.duracion));
-		result.append("' # Usuario: ");
-		result.append(numberFormatter.format(this.hacedor.getNickname()));
+//		result.append("' # Usuario: ");
+//		result.append(numberFormatter.format(this.hacedor.getNickname()));
 		
 		return result.toString();		
 	}
