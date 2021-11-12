@@ -12,7 +12,7 @@ public class Entrenamiento {
 	private String titulo;	
 	private String deporte;	
 	private float distancia;
-	private Date fechaIni;	
+	private String fechaIni;	
 	private long horaIni;
 	private long duracion;	
 	
@@ -40,11 +40,13 @@ public class Entrenamiento {
 		this.distancia = distancia;
 	}
 
-	public Date getFechaIni() {
+	
+
+	public String getFechaIni() {
 		return fechaIni;
 	}
 
-	public void setFechaIni(Date fechaIni) {
+	public void setFechaIni(String fechaIni) {
 		this.fechaIni = fechaIni;
 	}
 

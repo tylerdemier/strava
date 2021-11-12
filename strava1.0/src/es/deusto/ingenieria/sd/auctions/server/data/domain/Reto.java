@@ -9,8 +9,8 @@ public class Reto {
 	private String titulo;
 	private String descripcion;
 	private String deporte;
-	private Date fechaInicio;
-	private Date fechaFin;
+	private String fechaInicio;
+	private String fechaFin;
 	private long objetivo;	
 	private User creador;	
 	
@@ -39,19 +39,20 @@ public class Reto {
 		this.deporte = deporte;
 	}
 
-	public Date getFechaInicio() {
+	
+	public String getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(String fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
 
-	public Date getFechaFin() {
+	public String getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(Date fechaFin) {
+	public void setFechaFin(String fechaFin) {
 		this.fechaFin = fechaFin;
 	}
 

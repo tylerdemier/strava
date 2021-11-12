@@ -3,26 +3,23 @@ package es.deusto.ingenieria.sd.auctions.server.services;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
-import es.deusto.ingenieria.sd.auctions.server.data.domain.Category;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 
 //TODO: Implement Singleton Pattern
 public class BidAppService {
 	
-	//TODO: remove when DAO Pattern is implemented
-	private List<Category> categories = new ArrayList<>();
-	private List<Entrenamiento> articles = new ArrayList<>();
+	private List<Reto> retos = new ArrayList<>();
+	private List<Entrenamiento> entrenamientos = new ArrayList<>();
 	
 	public BidAppService() {
-		//TODO: remove when DAO Pattern is implemented
 		this.initilizeData();
 	}
 	
-	//TODO: remove when DAO Pattern is implemented
 	private void initilizeData() {
 		//Create Users
 		User user0 = new User();
@@ -35,110 +32,64 @@ public class BidAppService {
 		user1.setNickname("buyer33");		
 		user1.setPassword("hqc`}3Hb");
 								
-		//Create Categories
-		Category catPhone = new Category();
-		catPhone.setName("Cell Phones");		
-
-		//Create Articles				
-		Entrenamiento galaxy = new Entrenamiento();
-		galaxy.setNumber(9);
-		galaxy.setTitle("Samsung Galaxy S20 128GB");
-		galaxy.setInitialPrice(149.99f);
-		Calendar calendar = Calendar.getInstance();
-		calendar.add(Calendar.DAY_OF_MONTH, 60);
-		galaxy.setAuctionEnd(calendar.getTime());
+		//Create Reto
+		Reto reto1 = new Reto();
+		reto1.setTitulo("Correr Muchisimo");
+		reto1.setDescripcion("El cardio es bueno amigo mio");
+		reto1.setCreador(user1);
+		reto1.setFechaInicio("28:10:2021");
+		reto1.setFechaFin("28:10:2021");
+		reto1.setObjetivo(9000);
+		reto1.setDeporte("bici");
 		
-		catPhone.addArticle(galaxy);
-		galaxy.setCategory(catPhone);
-		user1.addArticle(galaxy);
-		galaxy.setOwner(user1);
+		//Create Entrenamiento				
+		Entrenamiento entrenamiento1 = new Entrenamiento();
+		entrenamiento1.setTitulo("Cardio");
+		entrenamiento1.setDistancia(20);
+		entrenamiento1.setFechaIni("28:10:2021");
+		entrenamiento1.setDuracion(90);
+		entrenamiento1.setHoraIni(22);
+		entrenamiento1.setDeporte("bici");
 		
-		Entrenamiento iphone = new Entrenamiento();
-		iphone.setNumber(10);
-		iphone.setTitle("Apple iPhone 12 64GB");
-		iphone.setInitialPrice(216.00f);
-		calendar = Calendar.getInstance();
-		calendar.add(Calendar.DAY_OF_MONTH, 30);
-		iphone.setAuctionEnd(calendar.getTime());			
+		Entrenamiento entrenamiento2 = new Entrenamiento();
+		entrenamiento2.setTitulo("Correr");
+		entrenamiento2.setDistancia(20);
+		entrenamiento2.setFechaIni("28:10:2021");
+		entrenamiento2.setDuracion(90);
+		entrenamiento2.setHoraIni(22);
+		entrenamiento2.setDeporte("correr");
 		
-		catPhone.addArticle(iphone);
-		iphone.setCategory(catPhone);
-		user1.addArticle(iphone);
-		iphone.setOwner(user1);
-						
-		Entrenamiento xiaomi = new Entrenamiento();
-		xiaomi.setNumber(11);	
-		xiaomi.setTitle("Xiaomi Mi 10");
-		xiaomi.setInitialPrice(99.40f);
-		calendar = Calendar.getInstance();
-		calendar.add(Calendar.DAY_OF_MONTH, 11);
-		xiaomi.setAuctionEnd(calendar.getTime());			
-				
-		catPhone.addArticle(xiaomi);		
-		xiaomi.setCategory(catPhone);
-		user1.addArticle(xiaomi);
-		xiaomi.setOwner(user1);
+		entrenamientos.add(entrenamiento1);
+		entrenamientos.add(entrenamiento2);
 		
-		//Add the Category to the local cache.
-		this.categories.add(catPhone);
-		//Add articles to local cahce
-		this.articles.add(galaxy);
-		this.articles.add(iphone);
-		this.articles.add(xiaomi);
+		retos.add(reto1);
+		
+		user1.getEntrenamientos().add(entrenamiento1);
+		user0.getRetosAceptados().add(reto1);
+		user0.getEntrenamientos().add(entrenamiento2);
+		
 	}
 	
 	
-	public List<Category> getCategories() {
-		//TODO: Get all the categories using DAO Pattern		
-		return this.categories;
-	}
-
-	public List<Entrenamiento> getArticles(String category) {
-		//TODO: Get articles of a category using DAO Pattern
-		for (Category cat : this.categories) {
-			if (cat.getName().equalsIgnoreCase(category)) {
-				return cat.getArticles();
+	public List<Reto> getRetos(String deporte) {
+		List<Reto> retosArray = new ArrayList();
+		for (Reto r : this.retos) {
+			if (r.getDeporte().equalsIgnoreCase(deporte)) {
+				retosArray.add(r);
 			}
-		}
-		
-		return null;
-	}
-
-	public boolean makeBid(User user, int number, float amount) {
-		//TODO: Find the artile using DAO Pattern
-		Entrenamiento article = null;
-		
-		for (Entrenamiento art : this.articles) {
-			if (art.getNumber() == number) {
-				article = art;
-				break;
-			}
-		}
-
-		if (article != null) {
-			Reto newBid = new Reto();		
-			newBid.setDate(Calendar.getInstance().getTime());
-			newBid.setAmount(amount);
-			newBid.setArticle(article);
-			newBid.setUser(user);		
-			article.addBid(newBid);
-			user.addBid(newBid);
-
-			//TODO: Save the new bin in the DB using DAO Pattern
-			
-			return true;
-		} else {
-			return false;
-		}
+		}	
+		return retosArray;
 	}
 	
-	public float getUSDRate() {
-		//TODO: Get conversion rate using Service Gateway
-		return 0.85f;
+	public List<Entrenamiento> getEntrenamientos(String deporte) {
+		List<Entrenamiento> entrenamientosArray = new ArrayList();
+		for (Entrenamiento e : this.entrenamientos) {
+			if (e.getDeporte().equalsIgnoreCase(deporte)) {
+				entrenamientosArray.add(e);
+			}
+		}	
+		return entrenamientosArray;
 	}
-
-	public float getGBPRate() throws RemoteException {
-		//TODO: Get conversion rate using Service Gateway
-		return 1.17f;
-	}
+	
+	
 }
