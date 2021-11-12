@@ -61,7 +61,6 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 			throw new RemoteException("User is not logged in!");
 		}
 	}
-	
 
 	@Override
 	public ArrayList<Entrenamiento> getEntrenamientos() throws RemoteException {
@@ -74,4 +73,5 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		// TODO Auto-generated method stub
 		return null;
 	}
-}
+	
+

@@ -1,9 +1,8 @@
 package es.deusto.ingenieria.sd.auctions.server.remote;
 
-import java.rmi.Remote; 
+import java.rmi.Remote;  
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.List;
 
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;

@@ -7,7 +7,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 
 public class RetoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;	
-	
+
 	private String titulo;
 	private String deporte;
 	private long objetivo;
