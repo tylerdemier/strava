@@ -9,6 +9,12 @@ public class User {
 	private String email;
 	private List<Reto> retosAceptados = new ArrayList<>();
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();
+	//Lo opcional
+	private float peso;
+	private float altura;
+	private float freqcardiacamax;
+	private float freqcardireposo;
+	private float rpm;
 		
 	public String getNickname() {
 		return nickname;
@@ -53,6 +59,46 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
+	
+	public float getPeso() {
+		return peso;
+	}
+
+	public void setPeso(float peso) {
+		this.peso = peso;
+	}
+
+	public float getAltura() {
+		return altura;
+	}
+
+	public void setAltura(float altura) {
+		this.altura = altura;
+	}
+
+	public float getFreqcardiacamax() {
+		return freqcardiacamax;
+	}
+
+	public void setFreqcardiacamax(float freqcardiacamax) {
+		this.freqcardiacamax = freqcardiacamax;
+	}
+
+	public float getFreqcardireposo() {
+		return freqcardireposo;
+	}
+
+	public void setFreqcardireposo(float freqcardireposo) {
+		this.freqcardireposo = freqcardireposo;
+	}
+
+	public float getRpm() {
+		return rpm;
+	}
+
+	public void setRpm(float rpm) {
+		this.rpm = rpm;
+	}
 
 	@Override
 	public String toString() {
@@ -66,6 +112,16 @@ public class User {
 		result.append(" Retos) - (");
 		result.append(this.entrenamientos.size());
 		result.append(" Entrenamientos)");
+		result.append(this.peso);
+		result.append(" - Peso)");
+		result.append(this.altura);
+		result.append(" - Altura)");
+		result.append(this.freqcardiacamax);
+		result.append(" - Frecuencia cardiaca maxima)");
+		result.append(this.freqcardireposo);
+		result.append(" - Frecuencia cardiaca en reposo)");
+		result.append(this.rpm);
+		result.append(" - RPM)");
 		
 		return result.toString();
 	}
