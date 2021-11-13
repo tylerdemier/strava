@@ -6,7 +6,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 public class EntrenamientoAssembler {
 	private static EntrenamientoAssembler instance;
 
-	private EntrenamientoAssembler() { }
+	public EntrenamientoAssembler() { }
 	
 	public static EntrenamientoAssembler getInstance() {
 		if (instance == null) {

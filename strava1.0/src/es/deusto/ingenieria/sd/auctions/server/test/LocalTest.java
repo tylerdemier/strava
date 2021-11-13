@@ -8,8 +8,6 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.remote.RemoteFacade;
 
-
-
 public class LocalTest {
 
 	public static void main(String[] args) {		
@@ -48,7 +46,7 @@ public class LocalTest {
 			//Logout
 			facade.logout(token);
 
-			retos = facade.getRetos(reto.getTitulo());
+			retos = facade.getRetos(reto.getDeporte());
 			reto = retos.get(0); 			
 			System.out.println("\t- " + reto);
 		} catch (Exception e) {

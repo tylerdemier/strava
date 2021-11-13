@@ -19,8 +19,8 @@ public class BidAppService {
 	
 	private List<Reto> retos = new ArrayList<>();
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();
-	private EntrenamientoAssembler assemblerEntrenamiento;
-	private RetoAssembler assemblerReto;
+	private EntrenamientoAssembler assemblerEntrenamiento = new EntrenamientoAssembler();
+	private RetoAssembler assemblerReto = new RetoAssembler();
 	
 	public BidAppService() {
 		this.initilizeData();
@@ -40,13 +40,25 @@ public class BidAppService {
 								
 		//Create Reto
 		Reto reto1 = new Reto();
-		reto1.setTitulo("Correr Muchisimo");
+		reto1.setTitulo("pedalear Muchisimo");
 		reto1.setDescripcion("El cardio es bueno amigo mio");
 		reto1.setCreador(user1);
 		reto1.setFechaInicio("28:10:2021");
 		reto1.setFechaFin("28:10:2021");
 		reto1.setObjetivo(9000);
 		reto1.setDeporte("bici");
+		
+		Reto reto2 = new Reto();
+		reto2.setTitulo("Correr Muchisimo");
+		reto2.setDescripcion("El cardio es bueno amigo mio");
+		reto2.setCreador(user1);
+		reto2.setFechaInicio("28:10:2021");
+		reto2.setFechaFin("28:10:2021");
+		reto2.setObjetivo(9000);
+		reto2.setDeporte("correr");
+		
+		retos.add(reto1);
+		retos.add(reto2);
 		
 		//Create Entrenamiento				
 		Entrenamiento entrenamiento1 = new Entrenamiento();
@@ -65,10 +77,13 @@ public class BidAppService {
 		entrenamiento2.setHoraIni(22);
 		entrenamiento2.setDeporte("correr");
 		
+		entrenamientos.add(entrenamiento2);
+		entrenamientos.add(entrenamiento1);
+		
 		user1.getEntrenamientos().add(entrenamiento1);
 		user0.getRetosAceptados().add(reto1);
 		user0.getEntrenamientos().add(entrenamiento2);
-		
+				
 	}
 	
 	

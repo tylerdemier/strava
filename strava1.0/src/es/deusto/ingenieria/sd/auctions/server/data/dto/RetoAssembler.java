@@ -6,7 +6,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 public class RetoAssembler {
 	private static RetoAssembler instance;
 
-	private RetoAssembler() { }
+	public RetoAssembler() { }
 	
 	public static RetoAssembler getInstance() {
 		if (instance == null) {
