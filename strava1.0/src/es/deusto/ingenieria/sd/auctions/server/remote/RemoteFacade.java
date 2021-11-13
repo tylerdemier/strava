@@ -13,6 +13,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 import es.deusto.ingenieria.sd.auctions.server.services.BidAppService;
 import es.deusto.ingenieria.sd.auctions.server.services.LoginAppService;
 
@@ -74,6 +75,12 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	public ArrayList<RetoDTO> getRetos(String deporte) throws RemoteException {
 		ArrayList<RetoDTO> a = bidService.getRetos(deporte);
 		return a;
+	}
+
+	@Override
+	public UserDTO getUser(String email, String contrasenya) throws RemoteException {
+		UserDTO u = loginService.getUser(email, contrasenya);
+		return u;
 	}
 }
 	

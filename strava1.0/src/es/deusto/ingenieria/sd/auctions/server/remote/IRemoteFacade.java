@@ -9,6 +9,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 
 //This interface defines the API of the Server. It represents the Remote Facade pattern
@@ -21,6 +22,8 @@ public interface IRemoteFacade extends Remote {
 	public ArrayList<EntrenamientoDTO> getEntrenamientos(String deporte) throws RemoteException;
 	
 	public ArrayList<RetoDTO> getRetos(String deporte) throws RemoteException;
+	
+	public UserDTO getUser(String email, String contrasenya) throws RemoteException;
 	
 
 }
