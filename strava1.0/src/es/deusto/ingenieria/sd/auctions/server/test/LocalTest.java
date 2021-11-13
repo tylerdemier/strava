@@ -4,6 +4,8 @@ import java.util.List;
 
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.remote.RemoteFacade;
 
 
@@ -12,26 +14,26 @@ public class LocalTest {
 
 	public static void main(String[] args) {		
 		RemoteFacade facade = null;
-		List<Entrenamiento> entrenamientos = null;
-		Entrenamiento entrenamiento = null;
-		List<Reto> retos = null;
-		Reto reto = null;
+		List<EntrenamientoDTO> entrenamientos = null;
+		EntrenamientoDTO entrenamiento = null;
+		List<RetoDTO> retos = null;
+		RetoDTO reto = null;
 		long token = 0l;
 		
 		try {
 			facade = new RemoteFacade();
 			
-			entrenamientos = facade.getEntrenamientos();
+			entrenamientos = facade.getEntrenamientos("bici");
 			entrenamiento = entrenamientos.get(0);
 			
-			for (Entrenamiento e : entrenamientos) {
+			for (EntrenamientoDTO e : entrenamientos) {
 				System.out.println("\t- " + e);
 			}			
 						
-			retos = facade.getRetos();
+			retos = facade.getRetos("correr");
 			reto = retos.get(0);
 			
-			for (Reto r : retos) {
+			for (RetoDTO r : retos) {
 				System.out.println("\t- " + r);
 			}
 								
@@ -46,7 +48,7 @@ public class LocalTest {
 			//Logout
 			facade.logout(token);
 
-			retos = facade.getRetos();
+			retos = facade.getRetos(reto.getTitulo());
 			reto = retos.get(0); 			
 			System.out.println("\t- " + reto);
 		} catch (Exception e) {

@@ -9,12 +9,18 @@ import java.util.List;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoAssembler;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAssembler;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 
 //TODO: Implement Singleton Pattern
 public class BidAppService {
 	
 	private List<Reto> retos = new ArrayList<>();
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();
+	private EntrenamientoAssembler assemblerEntrenamiento;
+	private RetoAssembler assemblerReto;
 	
 	public BidAppService() {
 		this.initilizeData();
@@ -59,11 +65,6 @@ public class BidAppService {
 		entrenamiento2.setHoraIni(22);
 		entrenamiento2.setDeporte("correr");
 		
-		entrenamientos.add(entrenamiento1);
-		entrenamientos.add(entrenamiento2);
-		
-		retos.add(reto1);
-		
 		user1.getEntrenamientos().add(entrenamiento1);
 		user0.getRetosAceptados().add(reto1);
 		user0.getEntrenamientos().add(entrenamiento2);
@@ -71,21 +72,25 @@ public class BidAppService {
 	}
 	
 	
-	public List<Reto> getRetos(String deporte) {
-		List<Reto> retosArray = new ArrayList();
+	public ArrayList<RetoDTO> getRetos(String deporte) {
+		ArrayList<RetoDTO> retosArray = new ArrayList<>();
 		for (Reto r : this.retos) {
 			if (r.getDeporte().equalsIgnoreCase(deporte)) {
-				retosArray.add(r);
+				assemblerReto.getInstance();
+				RetoDTO dto = assemblerReto.retoToDTO(r);
+				retosArray.add(dto);
 			}
 		}	
 		return retosArray;
 	}
 	
-	public List<Entrenamiento> getEntrenamientos(String deporte) {
-		List<Entrenamiento> entrenamientosArray = new ArrayList();
+	public ArrayList<EntrenamientoDTO> getEntrenamientos(String deporte) {
+		ArrayList<EntrenamientoDTO> entrenamientosArray = new ArrayList<>();
 		for (Entrenamiento e : this.entrenamientos) {
 			if (e.getDeporte().equalsIgnoreCase(deporte)) {
-				entrenamientosArray.add(e);
+				assemblerEntrenamiento.getInstance();
+				EntrenamientoDTO dto = assemblerEntrenamiento.entrenamientoToDTO(e);
+				entrenamientosArray.add(dto);
 			}
 		}	
 		return entrenamientosArray;
