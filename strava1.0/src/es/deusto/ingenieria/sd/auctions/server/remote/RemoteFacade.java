@@ -14,7 +14,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
-import es.deusto.ingenieria.sd.auctions.server.services.BidAppService;
+import es.deusto.ingenieria.sd.auctions.server.services.ErAppService;
 import es.deusto.ingenieria.sd.auctions.server.services.LoginAppService;
 
 public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {	
@@ -25,7 +25,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	
 	//TODO: Remove this instances when Singleton Pattern is implemented
 	private LoginAppService loginService = new LoginAppService();
-	private BidAppService bidService = new BidAppService();
+	private ErAppService bidService = new ErAppService();
 
 	public RemoteFacade() throws RemoteException {
 		super();		

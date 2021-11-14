@@ -11,7 +11,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
-import es.deusto.ingenieria.sd.auctions.server.services.BidAppService;
+import es.deusto.ingenieria.sd.auctions.server.services.ErAppService;
 
 
 //This interface defines the API of the Server. It represents the Remote Facade pattern

@@ -18,14 +18,14 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 //TODO: Implement Singleton Pattern
-public class BidAppService {
+public class ErAppService {
 	
 	private List<Reto> retos = new ArrayList<>();
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();
 	private EntrenamientoAssembler assemblerEntrenamiento = new EntrenamientoAssembler();
 	private RetoAssembler assemblerReto = new RetoAssembler();
 	
-	public BidAppService() {
+	public ErAppService() {
 		this.initilizeData();
 	}
 	
