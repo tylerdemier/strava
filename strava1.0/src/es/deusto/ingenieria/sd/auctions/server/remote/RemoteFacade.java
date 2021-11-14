@@ -65,11 +65,11 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		}
 	}
 
-	@Override
-	public ArrayList<EntrenamientoDTO> getEntrenamientos(String deporte) throws RemoteException {
-		ArrayList<EntrenamientoDTO> a = bidService.getEntrenamientos(deporte);
-		return a;
-	}
+//	@Override
+//	public ArrayList<EntrenamientoDTO> getEntrenamientosD(String deporte) throws RemoteException {
+//		ArrayList<EntrenamientoDTO> a = user.getEntrenamientosD(deporte);
+//		return a;
+//	}
 
 	@Override
 	public ArrayList<RetoDTO> getRetos(String deporte) throws RemoteException {

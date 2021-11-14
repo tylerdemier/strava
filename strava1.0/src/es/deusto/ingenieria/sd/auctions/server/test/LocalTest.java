@@ -1,11 +1,14 @@
 package es.deusto.ingenieria.sd.auctions.server.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
+import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 import es.deusto.ingenieria.sd.auctions.server.remote.RemoteFacade;
 
 public class LocalTest {
@@ -21,7 +24,26 @@ public class LocalTest {
 		try {
 			facade = new RemoteFacade();
 			
-			entrenamientos = facade.getEntrenamientos("bici");
+			User user = new User();		
+			user.setEmail("thomas.e2001@gmail.com");
+			user.setNickname("Thomas");	
+			String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex("$!9PhNz,");		
+			user.setPassword(sha1);
+			
+			Entrenamiento entrenamiento1 = new Entrenamiento();
+			entrenamiento1.setTitulo("BiciMax");
+			entrenamiento1.setDistancia(20);
+			entrenamiento1.setFechaIni("28:10:2021");
+			entrenamiento1.setDuracion(20);
+			entrenamiento1.setHoraIni(12);
+			entrenamiento1.setDeporte("bici");
+			
+			
+			ArrayList<Entrenamiento> entrenamientosAA = new ArrayList<>();
+			entrenamientosAA.add(entrenamiento1);
+
+			user.setEntrenamientos(entrenamientosAA);
+			
 			entrenamiento = entrenamientos.get(0);
 			
 			for (EntrenamientoDTO e : entrenamientos) {

@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
@@ -13,6 +15,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 //TODO: Implement Singleton Pattern
 public class BidAppService {
@@ -60,31 +63,6 @@ public class BidAppService {
 		retos.add(reto1);
 		retos.add(reto2);
 		
-		//Create Entrenamiento				
-		Entrenamiento entrenamiento1 = new Entrenamiento();
-		entrenamiento1.setTitulo("BiciMax");
-		entrenamiento1.setDistancia(20);
-		entrenamiento1.setFechaIni("28:10:2021");
-		entrenamiento1.setDuracion(20);
-		entrenamiento1.setHoraIni(12);
-		entrenamiento1.setDeporte("bici");
-		
-		Entrenamiento entrenamiento2 = new Entrenamiento();
-		entrenamiento2.setTitulo("Maraton");
-		entrenamiento2.setDistancia(30);
-		entrenamiento2.setFechaIni("28:10:2021");
-		entrenamiento2.setDuracion(90);
-		entrenamiento2.setHoraIni(22);
-		entrenamiento2.setDeporte("correr");
-		
-		entrenamientos.add(entrenamiento2);
-		entrenamientos.add(entrenamiento1);
-		
-		user1.getEntrenamientos().add(entrenamiento1);
-		user1.getRetosAceptados().add(reto2);
-		user0.getRetosAceptados().add(reto1);
-		user0.getEntrenamientos().add(entrenamiento2);
-				
 	}
 	
 	
@@ -100,17 +78,6 @@ public class BidAppService {
 		return retosArray;
 	}
 	
-	public ArrayList<EntrenamientoDTO> getEntrenamientos(String deporte) {
-		ArrayList<EntrenamientoDTO> entrenamientosArray = new ArrayList<>();
-		for (Entrenamiento e : this.entrenamientos) {
-			if (e.getDeporte().equalsIgnoreCase(deporte)) {
-				assemblerEntrenamiento.getInstance();
-				EntrenamientoDTO dto = assemblerEntrenamiento.entrenamientoToDTO(e);
-				entrenamientosArray.add(dto);
-			}
-		}	
-		return entrenamientosArray;
-	}
 	
 	
 }

@@ -19,7 +19,7 @@ public interface IRemoteFacade extends Remote {
 	
 	public void logout(long token) throws RemoteException; 
 	
-	public ArrayList<EntrenamientoDTO> getEntrenamientos(String deporte) throws RemoteException;
+//	public ArrayList<EntrenamientoDTO> getEntrenamientosD(String deporte, UserDTO user) throws RemoteException;
 	
 	public ArrayList<RetoDTO> getRetos(String deporte) throws RemoteException;
 	

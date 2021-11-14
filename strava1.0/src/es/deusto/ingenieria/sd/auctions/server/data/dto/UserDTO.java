@@ -27,9 +27,21 @@ public class UserDTO implements Serializable {
 	public void setRetosAceptados(List<RetoDTO> retosAceptados) {
 		this.retosAceptados = retosAceptados;
 	}
+	
 
 	public List<EntrenamientoDTO> getEntrenamientos() {
 		return entrenamientos;
+	}
+
+	public ArrayList<EntrenamientoDTO> getEntrenamientosD(String deporte) {
+		ArrayList<EntrenamientoDTO> entrenamientosArray = new ArrayList<>();
+				
+		for (EntrenamientoDTO e : this.getEntrenamientos()) {
+			if (e.getDeporte().equalsIgnoreCase(deporte)) {
+				entrenamientosArray.add(e);
+			}
+		}	
+		return entrenamientosArray;
 	}
 
 	public void setEntrenamientos(List<EntrenamientoDTO> entrenamientos) {

@@ -3,6 +3,8 @@ package es.deusto.ingenieria.sd.auctions.server.data.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
@@ -26,6 +28,7 @@ public class UserAssembler {
 		
 		dto.setEmail(user.getEmail());
 		dto.setNickname(user.getNickname());
+		//JOptionPane.showMessageDialog(null,user.getEntrenamientos().size());
 		List<EntrenamientoDTO> listaEntreno = new ArrayList<>();
 		for (Entrenamiento entrenamiento : user.getEntrenamientos()) {
 			EntrenamientoDTO eDTO = new EntrenamientoDTO();
