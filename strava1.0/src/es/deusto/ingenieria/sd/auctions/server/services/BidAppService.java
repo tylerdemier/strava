@@ -43,21 +43,21 @@ public class BidAppService {
 								
 		//Create Reto
 		Reto reto1 = new Reto();
-		reto1.setTitulo("pedalear Muchisimo");
-		reto1.setDescripcion("El cardio es bueno amigo mio");
+		reto1.setTitulo("Pedalear Muchisimo");
+		reto1.setDescripcion("¡quema tu bici!");
 		reto1.setCreador(user1);
-		reto1.setFechaInicio("28:10:2021");
-		reto1.setFechaFin("28:10:2021");
-		reto1.setObjetivo(9000);
+		reto1.setFechaInicio("01/01/2021");
+		reto1.setFechaFin("31/12/2021");
+		reto1.setObjetivo(2800);
 		reto1.setDeporte("bici");
 		
 		Reto reto2 = new Reto();
 		reto2.setTitulo("Correr Muchisimo");
 		reto2.setDescripcion("Huye de la policia");
 		reto2.setCreador(user0);
-		reto2.setFechaInicio("29:10:2020");
-		reto2.setFechaFin("01:04:2021");
-		reto2.setObjetivo(3);
+		reto2.setFechaInicio("31/10/2021");
+		reto2.setFechaFin("31/12/2021");
+		reto2.setObjetivo(300);
 		reto2.setDeporte("correr");
 		
 		retos.add(reto1);

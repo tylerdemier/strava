@@ -64,7 +64,7 @@ public class LocalTest {
 		try {
 			//Login
 			String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex("$!9PhNz,");
-			token = facade.login("thomas.e2001@gmail.com", sha1);			
+			token = facade.login("thomas.e2001@gmail.com", sha1, "Thomas");	
 			//Logout
 			facade.logout(token);
 

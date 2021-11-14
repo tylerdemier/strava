@@ -32,11 +32,11 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 	
 	@Override
-	public synchronized long login(String email, String password) throws RemoteException {
+	public synchronized long login(String email, String password, String nickname) throws RemoteException {
 		System.out.println(" * RemoteFacade login(): " + email + " / " + password);
 				
 		//Perform login() using LoginAppService
-		User user = loginService.login(email, password);
+		User user = loginService.login(email, password, nickname);
 			
 		//If login() success user is stored in the Server State
 		if (user != null) {
@@ -87,6 +87,11 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	public void quitarRetoARetos(String tituloReto) throws RemoteException {
 		bidService.quitarRetoARetos(tituloReto);
 		
+	}
+
+	@Override
+	public float calcularEstado(RetoDTO reto, UserDTO user) throws RemoteException {
+		return calcularEstado(reto, user);
 	}
 
 }
