@@ -50,11 +50,11 @@ public class BidAppService {
 		
 		Reto reto2 = new Reto();
 		reto2.setTitulo("Correr Muchisimo");
-		reto2.setDescripcion("El cardio es bueno amigo mio");
-		reto2.setCreador(user1);
-		reto2.setFechaInicio("28:10:2021");
-		reto2.setFechaFin("28:10:2021");
-		reto2.setObjetivo(9000);
+		reto2.setDescripcion("Huye de la policia");
+		reto2.setCreador(user0);
+		reto2.setFechaInicio("29:10:2020");
+		reto2.setFechaFin("01:04:2021");
+		reto2.setObjetivo(3);
 		reto2.setDeporte("correr");
 		
 		retos.add(reto1);
@@ -62,16 +62,16 @@ public class BidAppService {
 		
 		//Create Entrenamiento				
 		Entrenamiento entrenamiento1 = new Entrenamiento();
-		entrenamiento1.setTitulo("Cardio");
+		entrenamiento1.setTitulo("BiciMax");
 		entrenamiento1.setDistancia(20);
 		entrenamiento1.setFechaIni("28:10:2021");
-		entrenamiento1.setDuracion(90);
-		entrenamiento1.setHoraIni(22);
+		entrenamiento1.setDuracion(20);
+		entrenamiento1.setHoraIni(12);
 		entrenamiento1.setDeporte("bici");
 		
 		Entrenamiento entrenamiento2 = new Entrenamiento();
-		entrenamiento2.setTitulo("Correr");
-		entrenamiento2.setDistancia(20);
+		entrenamiento2.setTitulo("Maraton");
+		entrenamiento2.setDistancia(30);
 		entrenamiento2.setFechaIni("28:10:2021");
 		entrenamiento2.setDuracion(90);
 		entrenamiento2.setHoraIni(22);
@@ -81,6 +81,7 @@ public class BidAppService {
 		entrenamientos.add(entrenamiento1);
 		
 		user1.getEntrenamientos().add(entrenamiento1);
+		user1.getRetosAceptados().add(reto2);
 		user0.getRetosAceptados().add(reto1);
 		user0.getEntrenamientos().add(entrenamiento2);
 				

@@ -3,7 +3,12 @@ package es.deusto.ingenieria.sd.auctions.server.data.dto;
 import java.io.Serializable;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+
+import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
+import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 
 //This class implements DTO pattern
 public class UserDTO implements Serializable {	
@@ -11,7 +16,26 @@ public class UserDTO implements Serializable {
 	private static final long serialVersionUID = 1L;	
 	private String nickname;
 	private String email;
-	
+	private List<RetoDTO> retosAceptados = new ArrayList<>();
+	private List<EntrenamientoDTO> entrenamientos = new ArrayList<>();
+
+
+	public List<RetoDTO> getRetosAceptados() {
+		return retosAceptados;
+	}
+
+	public void setRetosAceptados(List<RetoDTO> retosAceptados) {
+		this.retosAceptados = retosAceptados;
+	}
+
+	public List<EntrenamientoDTO> getEntrenamientos() {
+		return entrenamientos;
+	}
+
+	public void setEntrenamientos(List<EntrenamientoDTO> entrenamientos) {
+		this.entrenamientos = entrenamientos;
+	}
+
 	public String getNickname() {
 		return nickname;
 	}

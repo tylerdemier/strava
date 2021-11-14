@@ -23,6 +23,15 @@ public class RetoAssembler {
 		dto.setDeporte(reto.getDeporte());
 		dto.setObjetivo(reto.getObjetivo());
 		
+		UserDTO uDTO = new UserDTO();
+		uDTO.setEmail(reto.getCreador().getEmail());
+		uDTO.setNickname(reto.getCreador().getNickname());
+		
+		dto.setCreador(uDTO);
+		dto.setFechaInicio(reto.getFechaInicio());
+		dto.setFechaFin(reto.getFechaFin());
+		dto.setDescripcion(reto.getDescripcion());
+		
 		return dto;
 	}
 }

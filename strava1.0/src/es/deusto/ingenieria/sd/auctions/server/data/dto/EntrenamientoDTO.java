@@ -8,7 +8,9 @@ public class EntrenamientoDTO implements Serializable {
 	private String titulo;	
 	private String deporte;	
 	private float distancia;
-	private long duracion;
+	private String fechaIni;	
+	private long horaIni;
+	private long duracion;	
 
 	public String getTitulo() {
 		return titulo;
@@ -41,4 +43,27 @@ public class EntrenamientoDTO implements Serializable {
 	public void setDuracion(Long duracion) {
 		this.duracion = duracion;
 	}
+
+	public String getFechaIni() {
+		return fechaIni;
+	}
+
+	public void setFechaIni(String fechaIni) {
+		this.fechaIni = fechaIni;
+	}
+
+	public long getHoraIni() {
+		return horaIni;
+	}
+
+	public void setHoraIni(long horaIni) {
+		this.horaIni = horaIni;
+	}
+
+	public void setDuracion(long duracion) {
+		this.duracion = duracion;
+	}
+	
+	
+	
 }

@@ -23,6 +23,8 @@ public class EntrenamientoAssembler {
 		dto.setDeporte(entrenamiento.getDeporte());
 		dto.setDistancia(entrenamiento.getDistancia());
 		dto.setDuracion(entrenamiento.getDuracion());
+		dto.setFechaIni(entrenamiento.getFechaIni());
+		dto.setHoraIni(entrenamiento.getHoraIni());
 		
 		return dto;
 	}

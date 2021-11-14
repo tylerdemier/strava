@@ -99,6 +99,7 @@ public class User {
 	public void setRpm(float rpm) {
 		this.rpm = rpm;
 	}
+	
 
 	@Override
 	public String toString() {
