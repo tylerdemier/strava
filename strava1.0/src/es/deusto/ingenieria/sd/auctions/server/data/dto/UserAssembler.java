@@ -48,6 +48,7 @@ public class UserAssembler {
 		for (Reto reto : user.getRetosAceptados()) {
 			RetoDTO rDTO = new RetoDTO();
 			rDTO.setTitulo(reto.getTitulo());
+			rDTO.setDescripcion(reto.getDescripcion());
 			rDTO.setDeporte(reto.getDeporte());
 			rDTO.setObjetivo(reto.getObjetivo());
 			rDTO.setCreador(dto);

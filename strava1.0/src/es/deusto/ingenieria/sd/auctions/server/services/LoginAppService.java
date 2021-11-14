@@ -1,11 +1,13 @@
 package es.deusto.ingenieria.sd.auctions.server.services;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -63,6 +65,25 @@ public class LoginAppService {
 		entrenamientos2.add(entrenamiento2);
 
 		user.setEntrenamientos(entrenamientos);
+		
+		//Create Reto
+		
+		List<Reto> retosAceptados = new ArrayList<Reto>();
+
+
+		Reto reto1 = new Reto();
+		reto1.setTitulo("pedalear Muchisimo");
+		reto1.setDescripcion("El cardio es bueno amigo mio");
+		reto1.setCreador(user);
+		reto1.setFechaInicio("28:10:2021");
+		reto1.setFechaFin("28:10:2021");
+		reto1.setObjetivo(9000);
+		reto1.setDeporte("bici");
+		
+					
+		retosAceptados.add(reto1);
+
+		user.setRetosAceptados(retosAceptados);
 	
 		
 		if (user.getEmail().equals(email) && user.checkPassword(password)) {		

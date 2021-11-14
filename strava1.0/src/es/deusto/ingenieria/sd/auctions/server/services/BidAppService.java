@@ -77,7 +77,41 @@ public class BidAppService {
 		}	
 		return retosArray;
 	}
+
+	public List<Reto> getRetosNormales() {
+		return retos;
+	}
+
+	public void anyadirRetoARetos(RetoDTO reto, UserDTO user) {
+		Reto r = new Reto();
+		User u = new User();
+		u.setNickname(user.getNickname());
+		r.setCreador(u);
+		r.setDeporte(reto.getDeporte());
+		r.setDescripcion(reto.getDescripcion());
+		r.setFechaInicio(reto.getFechaInicio());
+		r.setFechaFin(r.getFechaFin());
+		r.setObjetivo(reto.getObjetivo());
+		r.setTitulo(reto.getTitulo());
+		
+		this.retos.add(r);
+			
+			
+		}
+	
+	public void quitarRetoARetos(String tituloReto) {
+		
+		List<Reto> retosNuevos = new ArrayList<>();
+		for (Reto reto : this.retos) {
+			if(!reto.getTitulo().matches(tituloReto)) {
+				retosNuevos.add(reto);
+			}
+		}
+		
+		this.retos = retosNuevos;			
+		}
 	
 	
 	
-}
+	
+	}
