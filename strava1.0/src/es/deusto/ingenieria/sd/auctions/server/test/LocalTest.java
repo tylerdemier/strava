@@ -5,9 +5,12 @@ import java.util.List;
 
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
+import es.deusto.ingenieria.sd.auctions.server.data.domain.TipoUsuario;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
+import es.deusto.ingenieria.sd.auctions.server.data.domain.UserLocal;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.TipoUsuarioDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 import es.deusto.ingenieria.sd.auctions.server.remote.RemoteFacade;
 
@@ -24,7 +27,7 @@ public class LocalTest {
 		try {
 			facade = new RemoteFacade();
 			
-			User user = new User();		
+			UserLocal user = new UserLocal();		
 			user.setEmail("thomas.e2001@gmail.com");
 			user.setNickname("Thomas");	
 			String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex("$!9PhNz,");		
@@ -35,7 +38,7 @@ public class LocalTest {
 			entrenamiento1.setDistancia(20);
 			entrenamiento1.setFechaIni("28:10:2021");
 			entrenamiento1.setDuracion(20);
-			entrenamiento1.setHoraIni(12);
+			entrenamiento1.setHoraIni("12:22");
 			entrenamiento1.setDeporte("bici");
 			
 			
@@ -64,7 +67,7 @@ public class LocalTest {
 		try {
 			//Login
 			String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex("$!9PhNz,");
-			token = facade.login("thomas.e2001@gmail.com", sha1, "Thomas");	
+			token = facade.login("thomas.e2001@gmail.com", sha1, "Thomas", TipoUsuarioDTO.EMAIL);	
 			//Logout
 			facade.logout(token);
 

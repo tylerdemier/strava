@@ -16,29 +16,31 @@ public class UserDTO implements Serializable {
 	private static final long serialVersionUID = 1L;	
 	private String nickname;
 	private String email;
-	private List<RetoDTO> retosAceptados = new ArrayList<>();
+	private TipoUsuarioDTO tipoUsuario;
+	private List<RetoAceptadoDTO> retosAceptados = new ArrayList<>();
 	private List<EntrenamientoDTO> entrenamientos = new ArrayList<>();
 
 
-	public List<RetoDTO> getRetosAceptados() {
+	
+	public List<RetoAceptadoDTO> getRetosAceptados() {
 		return retosAceptados;
 	}
 
-	public void setRetosAceptados(List<RetoDTO> retosAceptados) {
+	public void setRetosAceptados(List<RetoAceptadoDTO> retosAceptados) {
 		this.retosAceptados = retosAceptados;
 	}
-	
-	public ArrayList<RetoDTO> getRetosD(String deporte) {
-		ArrayList<RetoDTO> retosArray = new ArrayList<>();
+
+	public ArrayList<RetoAceptadoDTO> getRetosD(String deporte) {
+		ArrayList<RetoAceptadoDTO> retosArray = new ArrayList<>();
 				
-		for (RetoDTO e : this.getRetosAceptados()) {
+		for (RetoAceptadoDTO e : this.getRetosAceptados()) {
 			if (e.getDeporte().equalsIgnoreCase(deporte)) {
 				retosArray.add(e);
 			}
 		}	
 		return retosArray;
 	}
-
+	
 
 	public List<EntrenamientoDTO> getEntrenamientos() {
 		return entrenamientos;
@@ -74,7 +76,15 @@ public class UserDTO implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+		
+	public TipoUsuarioDTO getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(TipoUsuarioDTO tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+
 	@Override
 	public String toString() {
 		StringBuffer result = new StringBuffer();

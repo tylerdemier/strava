@@ -12,7 +12,9 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.TipoUsuarioDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 import es.deusto.ingenieria.sd.auctions.server.services.ErAppService;
 import es.deusto.ingenieria.sd.auctions.server.services.LoginAppService;
@@ -32,15 +34,13 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 	
 	@Override
-	public synchronized long login(String email, String password, String nickname) throws RemoteException {
+	public synchronized long login(String email, String password, String nickname, TipoUsuarioDTO tipoUsuario) throws RemoteException {
 		System.out.println(" * RemoteFacade login(): " + email + " / " + password);
-				
-		//Perform login() using LoginAppService
-		User user = loginService.login(email, password, nickname);
 			
-		//If login() success user is stored in the Server State
+		User user  = loginService.login(email, password, nickname, tipoUsuario);
+		
 		if (user != null) {
-			//If user is not logged in 
+
 			if (!this.serverState.values().contains(user)) {
 				Long token = Calendar.getInstance().getTimeInMillis();		
 				this.serverState.put(token, user);		
@@ -73,12 +73,6 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public UserDTO getUser(String email, String contrasenya) throws RemoteException {
-		UserDTO u = loginService.getUser(email, contrasenya);
-		return u;
-	}
-
-	@Override
 	public void anyadirRetoARetos(RetoDTO reto, UserDTO user) throws RemoteException {
 		bidService.anyadirRetoARetos(reto, user);		
 	}
@@ -90,10 +84,14 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public float calcularEstado(RetoDTO reto, UserDTO user) throws RemoteException {
-		return calcularEstado(reto, user);
+	public void calcularEstado(RetoAceptadoDTO reto, UserDTO user) throws RemoteException {
+		calcularEstado(reto, user);
 	}
 
-}
+	@Override
+	public UserDTO getCheckedUsuario(String email, String password) throws RemoteException {
+		return getCheckedUsuario(email, password);
+	}
 	
+}
 

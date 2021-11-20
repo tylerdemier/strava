@@ -1,6 +1,6 @@
 package es.deusto.ingenieria.sd.auctions.server.data.dto;
 
-import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
+import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento; 
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 
 public class RetoAssembler {

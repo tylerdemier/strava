@@ -5,7 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class Reto {
+public class Reto {	
+	
 	private String titulo;
 	private String descripcion;
 	private String deporte;

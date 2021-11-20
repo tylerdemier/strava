@@ -5,17 +5,20 @@ import java.util.List;
 
 public class User {	
 	private String nickname;
-	private String password;
 	private String email;
+	//Correcion
 	private List<Reto> retosAceptados = new ArrayList<>();
+	private TipoUsuario tipoUsuario;
+	//Fin Correcion.
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();
-	//Lo opcional
+	
+	//Lo opcional.
 	private float peso;
 	private float altura;
 	private float freqcardiacamax;
 	private float freqcardireposo;
 	private float rpm;
-		
+
 	public String getNickname() {
 		return nickname;
 	}
@@ -23,15 +26,14 @@ public class User {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	
-	public boolean checkPassword(String password) {
-		return this.password.equals(password);
+		
+	public TipoUsuario getTipoUsuario() {
+		return tipoUsuario;
 	}
-	
-	public void setPassword(String password) {
-		this.password = password;
+
+	public void setTipoUsuario(TipoUsuario tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
-	
 	public String getEmail() {
 		return email;
 	}
@@ -40,7 +42,7 @@ public class User {
 		this.email = email;
 	}
 
-	public List<Reto> getRetosAceptados() {
+		public List<Reto> getRetosAceptados() {
 		return retosAceptados;
 	}
 
@@ -54,10 +56,6 @@ public class User {
 
 	public void setEntrenamientos(List<Entrenamiento> entrenamientos) {
 		this.entrenamientos = entrenamientos;
-	}
-
-	public String getPassword() {
-		return password;
 	}
 	
 	public float getPeso() {

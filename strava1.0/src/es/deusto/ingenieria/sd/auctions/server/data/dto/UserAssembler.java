@@ -1,12 +1,13 @@
 package es.deusto.ingenieria.sd.auctions.server.data.dto;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 
 import javax.swing.JOptionPane;
 
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
+import es.deusto.ingenieria.sd.auctions.server.data.domain.TipoUsuario;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 
 //This class is part of the DTO pattern. It also implements Singleton Pattern.
@@ -25,10 +26,12 @@ public class UserAssembler {
 
 	public UserDTO userToDTO(User user) {
 		UserDTO dto = new UserDTO();
-		
+
 		dto.setEmail(user.getEmail());
 		dto.setNickname(user.getNickname());
+		
 		//JOptionPane.showMessageDialog(null,user.getEntrenamientos().size());
+		
 		List<EntrenamientoDTO> listaEntreno = new ArrayList<>();
 		for (Entrenamiento entrenamiento : user.getEntrenamientos()) {
 			EntrenamientoDTO eDTO = new EntrenamientoDTO();
@@ -42,11 +45,11 @@ public class UserAssembler {
 		}
 		
 		dto.setEntrenamientos(listaEntreno);
+
 		
-		
-		List<RetoDTO> listaretos = new ArrayList<>();
+		List<RetoAceptadoDTO> listaretos = new ArrayList<>();
 		for (Reto reto : user.getRetosAceptados()) {
-			RetoDTO rDTO = new RetoDTO();
+			RetoAceptadoDTO rDTO = new RetoAceptadoDTO();
 			rDTO.setTitulo(reto.getTitulo());
 			rDTO.setDescripcion(reto.getDescripcion());
 			rDTO.setDeporte(reto.getDeporte());
@@ -58,6 +61,14 @@ public class UserAssembler {
 		}
 		
 		dto.setRetosAceptados(listaretos);
+		
+		if(user.getTipoUsuario().equals(TipoUsuario.GOOGLE)) {
+			dto.setTipoUsuario(TipoUsuarioDTO.GOOGLE);
+		} else if(user.getTipoUsuario().equals(TipoUsuario.FACEBOOK)) {
+			dto.setTipoUsuario(TipoUsuarioDTO.FACEBOOK);
+		}else if(user.getTipoUsuario().equals(TipoUsuario.EMAIL)) {
+			dto.setTipoUsuario(TipoUsuarioDTO.EMAIL);
+		}
 		
 		return dto;
 	}
