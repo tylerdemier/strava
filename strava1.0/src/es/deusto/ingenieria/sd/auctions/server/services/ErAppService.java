@@ -30,7 +30,6 @@ public class ErAppService {
 	private List<Reto> retos = new ArrayList<>();
 	private List<Reto> retosAceptados = new ArrayList<>();
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();
-	private List<User> usuarios = new ArrayList<>();
 	private EntrenamientoAssembler assemblerEntrenamiento = new EntrenamientoAssembler();
 	private UserAssembler assamblerUser = new UserAssembler();
 	private RetoAssembler assemblerReto = new RetoAssembler();
@@ -103,7 +102,7 @@ public class ErAppService {
 		r.setDeporte(reto.getDeporte());
 		r.setDescripcion(reto.getDescripcion());
 		r.setFechaInicio(reto.getFechaInicio());
-		r.setFechaFin(r.getFechaFin());
+		r.setFechaFin(reto.getFechaFin());
 		r.setObjetivo(reto.getObjetivo());
 		r.setTitulo(reto.getTitulo());
 
@@ -125,114 +124,54 @@ public class ErAppService {
 	}
 
 
-	public UserDTO getCheckedUsuario(String email, String password) {
-		UserDTO userQueVaASerRellenado = new UserDTO();
-		
-		UserLocal uT = new UserLocal();		
-		uT.setEmail("thomas.e2001@gmail.com");
-		uT.setNickname("Thomas");		
-		uT.setPassword("thomas");
-		Entrenamiento entrenamiento1 = new Entrenamiento();
-		entrenamiento1.setTitulo("BiciMax");
-		entrenamiento1.setDistancia(200);
-		entrenamiento1.setFechaIni("11/01/2021");
-		entrenamiento1.setDuracion(20);
-		entrenamiento1.setHoraIni("12:22");
-		entrenamiento1.setDeporte("bici");
-		Entrenamiento entrenamiento2 = new Entrenamiento();
-		entrenamiento2.setTitulo("Maraton");
-		entrenamiento2.setDistancia(30);
-		entrenamiento2.setFechaIni("12/11/2021");
-		entrenamiento2.setDuracion(24);
-		entrenamiento2.setHoraIni("14:12");
-		entrenamiento2.setDeporte("correr");
-		ArrayList<Entrenamiento> entrenamientos = new ArrayList<>();
-		entrenamientos.add(entrenamiento2);
-		entrenamientos.add(entrenamiento1);		
-		uT.setEntrenamientos(entrenamientos);
-		List<Reto> retosAceptados = new ArrayList<Reto>();
-		uT.setRetosAceptados(retosAceptados);
-		usuarios.add(uT);
-
-		for (User usuario : usuarios) {
-				UserLocal u = (UserLocal) usuario;
-				if(u.getEmail().matches(email) && u.checkPassword(password)) {
-					
-					//userQueVaASerRellenado = assamblerUser.userToDTO(u);
-					userQueVaASerRellenado.setEmail(u.getEmail());
-					userQueVaASerRellenado.setNickname(u.getNickname());
-					List<EntrenamientoDTO> entrenamientosDTO = new ArrayList<>();
-					for (Entrenamiento e : u.getEntrenamientos()) {
-						entrenamientosDTO.add(assemblerEntrenamiento.entrenamientoToDTO(e));
-					}
-					userQueVaASerRellenado.setEntrenamientos(entrenamientosDTO);
-					userQueVaASerRellenado.setTipoUsuario(TipoUsuarioDTO.EMAIL);
-					List<RetoAceptadoDTO> retosAceptadosDTO = new ArrayList<>();
-					for (Reto reto : u.getRetosAceptados()) {
-						RetoAceptadoDTO r = new RetoAceptadoDTO();
-						r.setCreador(assamblerUser.userToDTO(reto.getCreador()));
-						r.setDeporte(reto.getDeporte());
-						r.setDescripcion(reto.getDescripcion());
-						r.setFechaFin(reto.getFechaFin());
-						r.setFechaInicio(reto.getFechaInicio());
-						r.setObjetivo(reto.getObjetivo());
-						calcularEstado(r, userQueVaASerRellenado);
-						r.setTitulo(r.getTitulo());
-						retosAceptadosDTO.add(r);
-					}
-					userQueVaASerRellenado.setRetosAceptados(retosAceptadosDTO);
-					userQueVaASerRellenado.setTipoUsuario(TipoUsuarioDTO.EMAIL);
-					return userQueVaASerRellenado;
-				}
-			
-		}
-
-		return userQueVaASerRellenado;
+	public float calcularEstado(RetoAceptadoDTO reto, UserDTO user) {
+		float resultado = 0;	
 
 
-	}
+		for (EntrenamientoDTO entrenamiento : user.getEntrenamientos()) {
 
-	public void calcularEstado(RetoAceptadoDTO reto, UserDTO user) {
-		float resultado = 0;		
-		for (EntrenamientoDTO entrenamientoDTO : user.getEntrenamientos()) {
+			float cuantoHaHecho = 0;
+
+			String retoIni = reto.getFechaInicio();
+			Date df = null;
 			try {
-				String retoIni = reto.getFechaInicio();
-				Date df = new SimpleDateFormat("dd/MM/yyyy").parse(retoIni);
-
-
-				String retoFin = reto.getFechaInicio();
-				Date df1 = new SimpleDateFormat("dd/MM/yyyy").parse(retoFin);
-
-				String entrenIni = entrenamientoDTO.getFechaIni();
-				Date df2 = new SimpleDateFormat("dd/MM/yyyy").parse(entrenIni);
-
-				JOptionPane.showMessageDialog(null, df2.after(df));
-
-				float d = entrenamientoDTO.getDuracion();
-				int duracion = (int) d;
-				Date df3 = addHoursToJavaUtilDate(df2, duracion);
-
-				if(reto.getDeporte().matches(entrenamientoDTO.getDeporte()) && df2.after(df) && df3.before(df1)) {
-
-					float r = reto.getObjetivo();
-					float cuantoHaHecho = entrenamientoDTO.getDistancia();
-					// r ---> 100
-					// d ---> x
-					resultado = ((cuantoHaHecho * 100) / r);			
-				} else {
-					resultado = (float) 0.1;
-				}
-
+				df = new SimpleDateFormat("dd/MM/yyyy").parse(retoIni);
 			} catch (ParseException e) {
 				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "Hubo un probelma con las fechas.");
 			}
-		}	
 
-		reto.setPorcentajeCompletado(resultado);
+			String retoFin = reto.getFechaFin();
+			Date df1 = null;
+			try {
+				df1 = new SimpleDateFormat("dd/MM/yyyy").parse(retoFin);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 
+			String entrenIni = entrenamiento.getFechaIni();
+			Date df2 = null;
+			try {
+				df2 = new SimpleDateFormat("dd/MM/yyyy").parse(entrenIni);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+
+			float d = entrenamiento.getDuracion();
+			int duracion = (int) d;
+			Date df3 = addHoursToJavaUtilDate(df2, duracion);
+
+			if(entrenamiento.getDeporte().matches(reto.getDeporte()) && df2.after(df) && df3.before(df1)) {
+				cuantoHaHecho = cuantoHaHecho + entrenamiento.getDistancia();
+				long objetivo = reto.getObjetivo();
+				// o ---> 100
+				// c ---> x
+				resultado = ((cuantoHaHecho * 100) / objetivo);	
+				System.out.println("Resultado:" + resultado + "		-	" + reto.getTitulo());
+				return resultado;
+			}
+		}
+		return resultado;
 	}
-
 
 	public Date addHoursToJavaUtilDate(Date date, int hours) {
 		Calendar calendar = Calendar.getInstance();

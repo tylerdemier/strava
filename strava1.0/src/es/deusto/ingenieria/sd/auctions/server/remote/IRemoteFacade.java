@@ -31,7 +31,7 @@ public interface IRemoteFacade extends Remote {
 	
 	public void quitarRetoARetos(String tituloReto) throws RemoteException;
 	
-	public void calcularEstado(RetoAceptadoDTO reto, UserDTO user) throws RemoteException;
+	public float calcularEstado(RetoAceptadoDTO reto, UserDTO user) throws RemoteException;
 	
 	
 	

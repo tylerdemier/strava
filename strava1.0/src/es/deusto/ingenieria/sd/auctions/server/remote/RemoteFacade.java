@@ -1,6 +1,6 @@
 package es.deusto.ingenieria.sd.auctions.server.remote;
 
-import java.rmi.RemoteException; 
+import java.rmi.RemoteException;   
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,7 +18,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.TipoUsuarioDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 import es.deusto.ingenieria.sd.auctions.server.services.ErAppService;
 import es.deusto.ingenieria.sd.auctions.server.services.LoginAppService;
-
+ 
 public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {	
 	private static final long serialVersionUID = 1L;
 
@@ -84,13 +84,13 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public void calcularEstado(RetoAceptadoDTO reto, UserDTO user) throws RemoteException {
-		bidService.calcularEstado(reto, user);
+	public float calcularEstado(RetoAceptadoDTO reto, UserDTO user) throws RemoteException {
+		return bidService.calcularEstado(reto, user);
 	}
 
 	@Override
 	public UserDTO getCheckedUsuario(String email, String password) throws RemoteException {
-		return bidService.getCheckedUsuario(email, password);
+		return loginService.getCheckedUsuario(email, password);
 	}
 
 	
