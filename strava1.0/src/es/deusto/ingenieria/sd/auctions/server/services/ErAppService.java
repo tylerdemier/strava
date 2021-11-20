@@ -16,9 +16,11 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.UserLocal;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.TipoUsuarioDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
@@ -32,6 +34,7 @@ public class ErAppService {
 	private EntrenamientoAssembler assemblerEntrenamiento = new EntrenamientoAssembler();
 	private UserAssembler assamblerUser = new UserAssembler();
 	private RetoAssembler assemblerReto = new RetoAssembler();
+	private RetoAceptadoAssembler aceptadoAssembler = new RetoAceptadoAssembler();
 
 
 	public ErAppService() {
@@ -74,7 +77,7 @@ public class ErAppService {
 
 	}
 
-	
+
 
 	public ArrayList<RetoDTO> getRetos(String deporte) {
 		ArrayList<RetoDTO> retosArray = new ArrayList<>();
@@ -120,10 +123,10 @@ public class ErAppService {
 
 		this.retos = retosNuevos;			
 	}
-	
-	
-public UserDTO getCheckedUsuario(String email, String password) {
 
+
+	public UserDTO getCheckedUsuario(String email, String password) {
+		UserDTO userQueVaASerRellenado = new UserDTO();
 		
 		UserLocal uT = new UserLocal();		
 		uT.setEmail("thomas.e2001@gmail.com");
@@ -150,24 +153,41 @@ public UserDTO getCheckedUsuario(String email, String password) {
 		List<Reto> retosAceptados = new ArrayList<Reto>();
 		uT.setRetosAceptados(retosAceptados);
 		usuarios.add(uT);
-		
-		JOptionPane.showMessageDialog(null, "aqui1");
 
 		for (User usuario : usuarios) {
-			if(usuario.getClass().getSimpleName().matches("UserLocal")) {
 				UserLocal u = (UserLocal) usuario;
 				if(u.getEmail().matches(email) && u.checkPassword(password)) {
-					JOptionPane.showMessageDialog(null, "aqui2");
-					return assamblerUser.userToDTO(u);
+					
+					//userQueVaASerRellenado = assamblerUser.userToDTO(u);
+					userQueVaASerRellenado.setEmail(u.getEmail());
+					userQueVaASerRellenado.setNickname(u.getNickname());
+					List<EntrenamientoDTO> entrenamientosDTO = new ArrayList<>();
+					for (Entrenamiento e : u.getEntrenamientos()) {
+						entrenamientosDTO.add(assemblerEntrenamiento.entrenamientoToDTO(e));
+					}
+					userQueVaASerRellenado.setEntrenamientos(entrenamientosDTO);
+					userQueVaASerRellenado.setTipoUsuario(TipoUsuarioDTO.EMAIL);
+					List<RetoAceptadoDTO> retosAceptadosDTO = new ArrayList<>();
+					for (Reto reto : u.getRetosAceptados()) {
+						RetoAceptadoDTO r = new RetoAceptadoDTO();
+						r.setCreador(assamblerUser.userToDTO(reto.getCreador()));
+						r.setDeporte(reto.getDeporte());
+						r.setDescripcion(reto.getDescripcion());
+						r.setFechaFin(reto.getFechaFin());
+						r.setFechaInicio(reto.getFechaInicio());
+						r.setObjetivo(reto.getObjetivo());
+						calcularEstado(r, userQueVaASerRellenado);
+						r.setTitulo(r.getTitulo());
+						retosAceptadosDTO.add(r);
+					}
+					userQueVaASerRellenado.setRetosAceptados(retosAceptadosDTO);
+					userQueVaASerRellenado.setTipoUsuario(TipoUsuarioDTO.EMAIL);
+					return userQueVaASerRellenado;
 				}
-			} else if(usuario.getClass().getSimpleName().matches("User")) {
-				JOptionPane.showMessageDialog(null, "aqui3");
-				return assamblerUser.userToDTO(usuario);		
-			}
-
+			
 		}
 
-		return null;
+		return userQueVaASerRellenado;
 
 
 	}

@@ -85,13 +85,15 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 	@Override
 	public void calcularEstado(RetoAceptadoDTO reto, UserDTO user) throws RemoteException {
-		calcularEstado(reto, user);
+		bidService.calcularEstado(reto, user);
 	}
 
 	@Override
 	public UserDTO getCheckedUsuario(String email, String password) throws RemoteException {
-		return getCheckedUsuario(email, password);
+		return bidService.getCheckedUsuario(email, password);
 	}
+
+	
 	
 }
 
