@@ -1,20 +1,22 @@
 package gateway;
 
-import java.rmi.Naming;  
+import java.rmi.Naming;
+import java.rmi.RemoteException;
 
-import es.deusto.ingenieria.sd.auctions.currency.remote.IRegistration;
+import es.deusto.ingenieria.sd.auctions.currency.remote.IRegistrationGoogle;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
 public class RegisterServiceGateway {
 
 	private static RegisterServiceGateway instance;
-	private IRegistration currencyConvService;
+	private IRegistrationGoogle currencyConvService;
 	
-	private RegisterServiceGateway() {
+	public RegisterServiceGateway() {
 		try {		
-			String URL = "//127.0.0.1:1099/CurrencyExchange";
-			this.currencyConvService = (IRegistration) Naming.lookup(URL);
+			String URL = "//127.0.0.1:1099/stravaGoogle";
+			this.currencyConvService = (IRegistrationGoogle) Naming.lookup(URL);
 		} catch (Exception ex) {
-			System.err.println("# Error locating remote fa�ade: " + ex);
+			System.err.println("# Error locating remote facade: " + ex);
 		}
 	}
 	
@@ -22,30 +24,19 @@ public class RegisterServiceGateway {
 		if(instance == null) {
 			instance = new RegisterServiceGateway();
 		}
-		
 		return instance;
 	}
 	
-	public float getUSDRate() {
-		System.out.println("   - Get USD rate from Currency Service Gateway");
-		
-		try {
-			return this.currencyConvService.getUSDRate();
-		} catch (Exception ex) {
-			System.out.println("   $ Error getting USD rate: " + ex.getMessage());
-			return -1f;
-		}		
-	}
 
-	public float getGBPRate() {
-		System.out.println("   - Get GBP rate from Currency Service Gateway");
-		
+	public boolean checkCuentaGmail(String email, String contrasenya) {
 		try {
-			return this.currencyConvService.getGBPRate();
-		} catch (Exception ex) {
-			System.out.println("   $ Error getting GBP rate: " + ex.getMessage());
-			return -1f;
+			return this.currencyConvService.checkCuentaGmail(email, contrasenya);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		return false;
+		
 	}
+	
 
 }
