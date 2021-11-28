@@ -1,6 +1,6 @@
 package es.deusto.ingenieria.sd.auctions.server;
 
-import java.rmi.Naming;
+import java.rmi.Naming; 
 
 import es.deusto.ingenieria.sd.auctions.server.remote.IRemoteFacade;
 import es.deusto.ingenieria.sd.auctions.server.remote.RemoteFacade;
@@ -13,18 +13,7 @@ public class MainProgram {
 		//Activate Security Manager. It is needed for RMI.
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new SecurityManager());
-		}
-		
-		if (args.length < 2) {
-			System.err.println(" # Usage: Trans. SocketClient [SERVER IP] [PORT] ");
-			System.exit(1);
-		}
-		
-		FacebookSocketClient client = new FacebookSocketClient(args[0], Integer.parseInt(args[1]));
-		client.sendMessage("en", "es", "Good morning!");		
-		client.sendMessage("en", "fr", "Good morning!");
-		client.sendMessage("en", "zh", "Good morning!");
-		
+		}		
 		
 		//args[0] = RMIRegistry IP
 		//args[1] = RMIRegistry Port
@@ -41,6 +30,10 @@ public class MainProgram {
 			ex.printStackTrace();
 		}
 		
+		if (args.length < 2) {
+			System.err.println(" # Usage: Trans. SocketClient [SERVER IP] [PORT] ");
+			System.exit(1);
+		}
 	
 	}
 

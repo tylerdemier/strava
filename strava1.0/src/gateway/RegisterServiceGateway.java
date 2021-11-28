@@ -1,6 +1,6 @@
 package gateway;
 
-import java.rmi.Naming;
+import java.rmi.Naming; 
 import java.rmi.RemoteException;
 
 import es.deusto.ingenieria.sd.auctions.currency.remote.IRegistrationGoogle;

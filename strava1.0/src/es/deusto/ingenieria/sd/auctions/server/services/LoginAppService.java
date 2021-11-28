@@ -23,6 +23,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.TipoUsuarioDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 import gateway.RegisterServiceGateway;
+import socket.FacebookSocketClient;
 
 
 public class LoginAppService {
@@ -31,6 +32,7 @@ public class LoginAppService {
 	private EntrenamientoAssembler assemblerEntrenamiento = new EntrenamientoAssembler();
 	private List<User> usuarios = new ArrayList<>();
 	private RegisterServiceGateway registerServiceGateway = new RegisterServiceGateway();
+	private FacebookSocketClient client = new FacebookSocketClient("0.0.0.0", 35600);
 
 
 	public User login(String email, String password, String nickName, TipoUsuarioDTO tipoUsuarioDTO) {
@@ -92,18 +94,18 @@ public class LoginAppService {
 		uB.setEmail("billlie@gmail.com");
 		uB.setNickname("Billlie");		
 		Entrenamiento entrenamiento3 = new Entrenamiento();
-		entrenamiento3.setTitulo("BiciMax");
-		entrenamiento3.setDistancia(200);
-		entrenamiento3.setFechaIni("11/01/2021");
-		entrenamiento3.setDuracion(20);
-		entrenamiento3.setHoraIni("12:22");
+		entrenamiento3.setTitulo("Bicicleteando");
+		entrenamiento3.setDistancia(20);
+		entrenamiento3.setFechaIni("11/11/2021");
+		entrenamiento3.setDuracion(30);
+		entrenamiento3.setHoraIni("11:11");
 		entrenamiento3.setDeporte("bici");
 		Entrenamiento entrenamiento4 = new Entrenamiento();
-		entrenamiento4.setTitulo("Maraton");
-		entrenamiento4.setDistancia(30);
-		entrenamiento4.setFechaIni("12/11/2021");
-		entrenamiento4.setDuracion(24);
-		entrenamiento4.setHoraIni("14:12");
+		entrenamiento4.setTitulo("EncontrarABilllie");
+		entrenamiento4.setDistancia(3000);
+		entrenamiento4.setFechaIni("12/12/2021");
+		entrenamiento4.setDuracion(2);
+		entrenamiento4.setHoraIni("10:20");
 		entrenamiento4.setDeporte("correr");
 		ArrayList<Entrenamiento> entrenamientos2 = new ArrayList<>();
 		entrenamientos2.add(entrenamiento3);
@@ -113,6 +115,33 @@ public class LoginAppService {
 		uB.setRetosAceptados(retosAceptados2);
 		uB.setTipoUsuario(TipoUsuario.GOOGLE);
 		usuarios.add(uB);
+		
+		User uA = new User();		
+		uA.setEmail("astro@hotmail.com");
+		uA.setNickname("Astro");		
+		Entrenamiento entrenamiento5 = new Entrenamiento();
+		entrenamiento5.setTitulo("ET");
+		entrenamiento5.setDistancia(2000);
+		entrenamiento5.setFechaIni("07/07/2021");
+		entrenamiento5.setDuracion(10);
+		entrenamiento5.setHoraIni("00:30");
+		entrenamiento5.setDeporte("bici");
+		Entrenamiento entrenamiento6 = new Entrenamiento();
+		entrenamiento6.setTitulo("Maraton");
+		entrenamiento6.setDistancia(10000);
+		entrenamiento6.setFechaIni("12/11/2021");
+		entrenamiento6.setDuracion(300);
+		entrenamiento6.setHoraIni("14:12");
+		entrenamiento6.setDeporte("correr");
+		ArrayList<Entrenamiento> entrenamientos3 = new ArrayList<>();
+		entrenamientos3.add(entrenamiento3);
+		entrenamientos3.add(entrenamiento4);		
+		uA.setEntrenamientos(entrenamientos2);
+		List<Reto> retosAceptados3 = new ArrayList<Reto>();
+		uA.setRetosAceptados(retosAceptados3);
+		uA.setTipoUsuario(TipoUsuario.FACEBOOK);
+		usuarios.add(uA);
+
 
 		for (User usuario : usuarios) {
 
@@ -154,7 +183,7 @@ public class LoginAppService {
 						entrenamientosDTO.add(assemblerEntrenamiento.entrenamientoToDTO(e));
 					}
 					userQueVaASerRellenado.setEntrenamientos(entrenamientosDTO);
-					userQueVaASerRellenado.setTipoUsuario(TipoUsuarioDTO.EMAIL);
+					userQueVaASerRellenado.setTipoUsuario(TipoUsuarioDTO.GOOGLE);
 					List<RetoAceptadoDTO> retosAceptadosDTO = new ArrayList<>();
 					for (Reto reto : usuario.getRetosAceptados()) {
 						RetoAceptadoDTO r = new RetoAceptadoDTO();
@@ -169,7 +198,32 @@ public class LoginAppService {
 						retosAceptadosDTO.add(r);
 					}
 					userQueVaASerRellenado.setRetosAceptados(retosAceptadosDTO);
-					userQueVaASerRellenado.setTipoUsuario(TipoUsuarioDTO.EMAIL);
+					return userQueVaASerRellenado;
+				}
+			} else if (usuario.getTipoUsuario() == TipoUsuario.FACEBOOK) {
+				if(client.sendMessage(email, password)) {
+					userQueVaASerRellenado.setEmail(usuario.getEmail());
+					userQueVaASerRellenado.setNickname(usuario.getNickname());
+					List<EntrenamientoDTO> entrenamientosDTO = new ArrayList<>();
+					for (Entrenamiento e : usuario.getEntrenamientos()) {
+						entrenamientosDTO.add(assemblerEntrenamiento.entrenamientoToDTO(e));
+					}
+					userQueVaASerRellenado.setEntrenamientos(entrenamientosDTO);
+					userQueVaASerRellenado.setTipoUsuario(TipoUsuarioDTO.FACEBOOK);
+					List<RetoAceptadoDTO> retosAceptadosDTO = new ArrayList<>();
+					for (Reto reto : usuario.getRetosAceptados()) {
+						RetoAceptadoDTO r = new RetoAceptadoDTO();
+						r.setCreador(assamblerUser.userToDTO(reto.getCreador()));
+						r.setDeporte(reto.getDeporte());
+						r.setDescripcion(reto.getDescripcion());
+						r.setFechaFin(reto.getFechaFin());
+						r.setFechaInicio(reto.getFechaInicio());
+						r.setObjetivo(reto.getObjetivo());
+						r.setPorcentajeCompletado(101);
+						r.setTitulo(r.getTitulo());
+						retosAceptadosDTO.add(r);
+					}
+					userQueVaASerRellenado.setRetosAceptados(retosAceptadosDTO);
 					return userQueVaASerRellenado;
 				}
 			}
