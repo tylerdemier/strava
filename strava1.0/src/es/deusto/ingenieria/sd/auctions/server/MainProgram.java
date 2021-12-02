@@ -4,7 +4,7 @@ import java.rmi.Naming;
 
 import es.deusto.ingenieria.sd.auctions.server.remote.IRemoteFacade;
 import es.deusto.ingenieria.sd.auctions.server.remote.RemoteFacade;
-import socket.FacebookSocketClient;
+import factory.FacebookSocketClient;
 
 public class MainProgram {
 

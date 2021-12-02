@@ -22,8 +22,8 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.TipoUsuarioDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
-import gateway.RegisterServiceGateway;
-import socket.FacebookSocketClient;
+import factory.FacebookSocketClient;
+import factory.GoogleServiceGateway;
 
 
 public class LoginAppService {
@@ -31,7 +31,7 @@ public class LoginAppService {
 	private UserAssembler assamblerUser = new UserAssembler();
 	private EntrenamientoAssembler assemblerEntrenamiento = new EntrenamientoAssembler();
 	private List<User> usuarios = new ArrayList<>();
-	private RegisterServiceGateway registerServiceGateway = new RegisterServiceGateway();
+	private GoogleServiceGateway registerServiceGateway = new GoogleServiceGateway();
 	private FacebookSocketClient client = new FacebookSocketClient("0.0.0.0", 35600);
 
 
@@ -64,7 +64,7 @@ public class LoginAppService {
 		UserDTO userQueVaASerRellenado = new UserDTO();
 
 		UserLocal uT = new UserLocal();		
-		uT.setEmail("thomas.e2001@gmail.com");
+		uT.setEmail("thomas@gmail.com");
 		uT.setNickname("Thomas");		
 		uT.setPassword("thomas");
 		Entrenamiento entrenamiento1 = new Entrenamiento();
@@ -175,7 +175,7 @@ public class LoginAppService {
 					return userQueVaASerRellenado;
 				}
 			} else if(usuario.getTipoUsuario() == TipoUsuario.GOOGLE) {
-				if(registerServiceGateway.checkCuentaGmail(email, password)) {
+				if(registerServiceGateway.checkCuenta(email, password)) {
 					userQueVaASerRellenado.setEmail(usuario.getEmail());
 					userQueVaASerRellenado.setNickname(usuario.getNickname());
 					List<EntrenamientoDTO> entrenamientosDTO = new ArrayList<>();
@@ -201,7 +201,7 @@ public class LoginAppService {
 					return userQueVaASerRellenado;
 				}
 			} else if (usuario.getTipoUsuario() == TipoUsuario.FACEBOOK) {
-				if(client.sendMessage(email, password)) {
+				if(client.checkCuenta(email, password)) {
 					userQueVaASerRellenado.setEmail(usuario.getEmail());
 					userQueVaASerRellenado.setNickname(usuario.getNickname());
 					List<EntrenamientoDTO> entrenamientosDTO = new ArrayList<>();

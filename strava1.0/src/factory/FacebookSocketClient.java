@@ -1,10 +1,10 @@
-package socket;
+package factory;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 
-public class FacebookSocketClient {
+public class FacebookSocketClient implements ILoginGateway {
 	
 	private String serverIP;
 	private int serverPort;
@@ -14,11 +14,10 @@ public class FacebookSocketClient {
 		serverIP = servIP;
 		serverPort = servPort;
 	}
-	
-	
 
-	public boolean sendMessage(String FaceUser, String contrasenya){
-		String message = FaceUser + DELIMITER + contrasenya;
+	@Override
+	public boolean checkCuenta(String email, String contrasenya) {
+		String message = email + DELIMITER + contrasenya;
 		String translation = null;
 		
 		try (Socket socket = new Socket(serverIP, serverPort);

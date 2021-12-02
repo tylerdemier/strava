@@ -1,4 +1,4 @@
-package gateway;
+package factory;
 
 import java.rmi.Naming; 
 import java.rmi.RemoteException;
@@ -6,12 +6,12 @@ import java.rmi.RemoteException;
 import es.deusto.ingenieria.sd.auctions.currency.remote.IRegistrationGoogle;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 
-public class RegisterServiceGateway {
+public class GoogleServiceGateway implements ILoginGateway {
 
-	private static RegisterServiceGateway instance;
+	private static GoogleServiceGateway instance;
 	private IRegistrationGoogle currencyConvService;
 	
-	public RegisterServiceGateway() {
+	public GoogleServiceGateway() {
 		try {		
 			String URL = "//127.0.0.1:1099/stravaGoogle";
 			this.currencyConvService = (IRegistrationGoogle) Naming.lookup(URL);
@@ -20,23 +20,23 @@ public class RegisterServiceGateway {
 		}
 	}
 	
-	public static RegisterServiceGateway getInstance() {
+	public static GoogleServiceGateway getInstance() {
 		if(instance == null) {
-			instance = new RegisterServiceGateway();
+			instance = new GoogleServiceGateway();
 		}
 		return instance;
 	}
-	
 
-	public boolean checkCuentaGmail(String email, String contrasenya) {
+	@Override
+	public boolean checkCuenta(String email, String contrasenya) {
 		try {
 			return this.currencyConvService.checkCuentaGmail(email, contrasenya);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
-		
 	}
 	
+
 
 }
