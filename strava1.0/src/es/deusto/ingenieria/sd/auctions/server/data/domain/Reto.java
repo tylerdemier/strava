@@ -1,6 +1,6 @@
 package es.deusto.ingenieria.sd.auctions.server.data.domain;
 
-import java.text.NumberFormat;
+import java.text.NumberFormat; 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -9,7 +9,7 @@ public class Reto {
 	
 	private String titulo;
 	private String descripcion;
-	private String deporte;
+	private String deporte; 
 	private String fechaInicio;
 	private String fechaFin;
 	private long objetivo;	
