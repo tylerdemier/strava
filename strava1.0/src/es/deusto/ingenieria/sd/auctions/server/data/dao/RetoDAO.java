@@ -21,7 +21,6 @@ public class RetoDAO extends DataAccessObjectBase implements IDataAccessObject<R
 		if (instance == null) {
 			instance = new RetoDAO();
 		}		
-		
 		return instance;
 	}
 	
@@ -79,7 +78,7 @@ public class RetoDAO extends DataAccessObjectBase implements IDataAccessObject<R
 			query.setUnique(true);			
 			tx.commit();
 		} catch (Exception ex) {
-			System.out.println("  $ Error querying a Bid: " + ex.getMessage());
+			System.out.println("  $ Error querying a Reto: " + ex.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();

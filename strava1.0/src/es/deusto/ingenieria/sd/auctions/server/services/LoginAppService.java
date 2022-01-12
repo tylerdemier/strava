@@ -1,14 +1,9 @@
 package es.deusto.ingenieria.sd.auctions.server.services;
 
-import java.text.DateFormat;  
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
-import javax.swing.JOptionPane;
 
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
@@ -18,7 +13,6 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.UserLocal;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoDTO;
-import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.TipoUsuarioDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;

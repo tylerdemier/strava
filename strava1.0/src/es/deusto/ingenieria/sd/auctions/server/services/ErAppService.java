@@ -28,13 +28,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 public class ErAppService {
 
 	private List<Reto> retos = new ArrayList<>();
-	private List<Reto> retosAceptados = new ArrayList<>();
-	private List<Entrenamiento> entrenamientos = new ArrayList<>();
-	private EntrenamientoAssembler assemblerEntrenamiento = new EntrenamientoAssembler();
-	private UserAssembler assamblerUser = new UserAssembler();
 	private RetoAssembler assemblerReto = new RetoAssembler();
-	private RetoAceptadoAssembler aceptadoAssembler = new RetoAceptadoAssembler();
-
 
 	public ErAppService() {
 		this.initilizeData();

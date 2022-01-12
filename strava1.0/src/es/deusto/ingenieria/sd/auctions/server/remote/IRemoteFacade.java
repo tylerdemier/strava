@@ -1,6 +1,6 @@
 package es.deusto.ingenieria.sd.auctions.server.remote;
 
-import java.rmi.Remote;  
+import java.rmi.Remote;   
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;

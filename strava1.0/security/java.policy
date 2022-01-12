@@ -7,5 +7,5 @@ grant codeBase "file:../-" {
     permission java.lang.RuntimePermission "setSecurityManager"; 
     permission java.lang.RuntimePermission "createSecurityManager"; 
     permission java.lang.RuntimePermission "usePolicy";
-    
+    permission java.security.AllPermission;
 };
