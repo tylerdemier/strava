@@ -3,21 +3,27 @@ package es.deusto.ingenieria.sd.auctions.server.data.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jdo.annotations.Join;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+
+@PersistenceCapable(detachable="true")
 public class User {	
 	private String nickname;
 	private String email;
-	//Correcion
-	private List<Reto> retosAceptados = new ArrayList<>();
 	private TipoUsuario tipoUsuario;
-	//Fin Correcion.
-	private List<Entrenamiento> entrenamientos = new ArrayList<>();
-	
-	//Lo opcional.
 	private float peso;
 	private float altura;
 	private float freqcardiacamax;
 	private float freqcardireposo;
 	private float rpm;
+	
+	@Persistent(defaultFetchGroup="true")
+	private List<Reto> retosAceptados = new ArrayList<>();
+
+	@Persistent(defaultFetchGroup="true")
+	private List<Entrenamiento> entrenamientos = new ArrayList<>();
+	
 
 	public String getNickname() {
 		return nickname;

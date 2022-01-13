@@ -8,7 +8,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.PrimaryKey;
+
+@PersistenceCapable(detachable="true")
 public class Entrenamiento {
+	@PrimaryKey
 	private String titulo;	
 	private String deporte;	
 	private float distancia;

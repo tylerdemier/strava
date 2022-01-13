@@ -1,7 +1,10 @@
 package es.deusto.ingenieria.sd.auctions.server.data.domain;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable(detachable="true")
 public class UserLocal extends User {
-	
+
 	private String password;
 	
 	public boolean checkPassword(String password) {

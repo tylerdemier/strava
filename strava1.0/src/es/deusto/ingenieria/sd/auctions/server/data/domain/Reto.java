@@ -5,14 +5,21 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+@PersistenceCapable(detachable="true")
 public class Reto {	
-	
+	@PrimaryKey
 	private String titulo;
 	private String descripcion;
 	private String deporte; 
 	private String fechaInicio;
 	private String fechaFin;
 	private long objetivo;	
+	
+	@Persistent(defaultFetchGroup="true")
 	private User creador;	
 	
 	
