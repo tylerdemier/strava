@@ -1,6 +1,6 @@
 package es.deusto.ingenieria.sd.auctions.server.data.dao;
 
-import java.util.ArrayList; 
+import java.util.ArrayList;  
 import java.util.List;
 
 import javax.jdo.Extent;

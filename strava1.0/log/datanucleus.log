@@ -1,6 +1,6 @@
-20:44:28,265 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
-20:44:29,018 (main) ERROR [DataNucleus.Datastore.Schema] - No hay clases !
-20:44:29,022 (main) ERROR [DataNucleus.SchemaTool] - DataNucleus SchemaTool ha lanzado una excepción. Por favor consulte el Log para ver más detalles: No hay clases !
+13:57:48,956 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+13:57:50,135 (main) ERROR [DataNucleus.Datastore.Schema] - No hay clases !
+13:57:50,150 (main) ERROR [DataNucleus.SchemaTool] - DataNucleus SchemaTool ha lanzado una excepción. Por favor consulte el Log para ver más detalles: No hay clases !
 No hay clases !
 org.datanucleus.exceptions.NucleusException: No hay clases !
 	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3998)
