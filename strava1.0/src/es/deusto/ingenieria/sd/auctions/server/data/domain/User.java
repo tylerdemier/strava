@@ -3,23 +3,24 @@ package es.deusto.ingenieria.sd.auctions.server.data.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jdo.annotations.Discriminator;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
+@Discriminator(value="password")
 @PersistenceCapable(detachable="true")
 public class User {	
 	private String nickname;
 	private String email;
 	private TipoUsuario tipoUsuario;
+	private List<Reto> retosAceptados = new ArrayList<>();
 	private float peso;
 	private float altura;
 	private float freqcardiacamax;
 	private float freqcardireposo;
 	private float rpm;
-	
-	@Persistent(defaultFetchGroup="true")
-	private List<Reto> retosAceptados = new ArrayList<>();
 
 	@Persistent(defaultFetchGroup="true")
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();

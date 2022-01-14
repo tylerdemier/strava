@@ -12,7 +12,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 
 //This class implements Singleton and DAO patterns
 public class UserLocalDAO extends DataAccessObjectBase implements IDataAccessObject<User> {
-
+	
 	private static UserLocalDAO instance;	
 	
 	private UserLocalDAO() { }
