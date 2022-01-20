@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.jdo.annotations.Discriminator;
+import javax.jdo.annotations.Inheritance;
+import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-@Discriminator(value="password")
 @PersistenceCapable(detachable="true")
+@Inheritance(strategy = InheritanceStrategy.NEW_TABLE)
 public class User {	
+	@PrimaryKey
+	private int number;
 	private String nickname;
 	private String email;
 	private TipoUsuario tipoUsuario;
@@ -25,6 +29,15 @@ public class User {
 	@Persistent(defaultFetchGroup="true")
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();
 	
+	
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
 
 	public String getNickname() {
 		return nickname;

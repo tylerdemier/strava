@@ -14,14 +14,21 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 public class UserDTO implements Serializable {	
 	//This attribute is needed to implement the "Serializable" interface.
 	private static final long serialVersionUID = 1L;	
+	private int number;
 	private String nickname;
 	private String email;
 	private TipoUsuarioDTO tipoUsuario;
 	private List<RetoAceptadoDTO> retosAceptados = new ArrayList<>();
 	private List<EntrenamientoDTO> entrenamientos = new ArrayList<>();
-
-
 	
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
 	public List<RetoAceptadoDTO> getRetosAceptados() {
 		return retosAceptados;
 	}

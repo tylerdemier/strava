@@ -2,10 +2,11 @@ package es.deusto.ingenieria.sd.auctions.server;
 
 import java.rmi.Naming;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
+import es.deusto.ingenieria.sd.auctions.server.data.dao.RetoDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.dao.UserDAO;
+import es.deusto.ingenieria.sd.auctions.server.data.dao.UserLocalDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.TipoUsuario;
@@ -14,6 +15,8 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.UserLocal;
 import es.deusto.ingenieria.sd.auctions.server.remote.IRemoteFacade;
 import es.deusto.ingenieria.sd.auctions.server.remote.RemoteFacade;
 
+
+ 
 public class MainProgram {
 
 	public static void main(String[] args) {	
@@ -55,6 +58,7 @@ public class MainProgram {
 			
 			//Entrenamientos
 			Entrenamiento entrenamiento1 = new Entrenamiento();
+			entrenamiento1.setNumber(1);
 			entrenamiento1.setTitulo("BiciMax");
 			entrenamiento1.setDistancia(200);
 			entrenamiento1.setFechaIni("11/01/2021");
@@ -63,6 +67,7 @@ public class MainProgram {
 			entrenamiento1.setDeporte("bici");
 			
 			Entrenamiento entrenamiento2 = new Entrenamiento();
+			entrenamiento2.setNumber(2);
 			entrenamiento2.setTitulo("Maraton");
 			entrenamiento2.setDistancia(30);
 			entrenamiento2.setFechaIni("12/11/2021");
@@ -71,7 +76,8 @@ public class MainProgram {
 			entrenamiento2.setDeporte("correr");
 			
 			Entrenamiento entrenamiento3 = new Entrenamiento();
-			entrenamiento3.setTitulo("Bicicleteando");
+			entrenamiento3.setNumber(3);
+			entrenamiento3.setTitulo("LllevameEnMiBicicleta");
 			entrenamiento3.setDistancia(20);
 			entrenamiento3.setFechaIni("11/11/2021");
 			entrenamiento3.setDuracion(30);
@@ -79,6 +85,7 @@ public class MainProgram {
 			entrenamiento3.setDeporte("bici");
 			
 			Entrenamiento entrenamiento4 = new Entrenamiento();
+			entrenamiento4.setNumber(4);
 			entrenamiento4.setTitulo("EncontrarABilllie");
 			entrenamiento4.setDistancia(3000);
 			entrenamiento4.setFechaIni("12/12/2021");
@@ -87,6 +94,7 @@ public class MainProgram {
 			entrenamiento4.setDeporte("correr");
 			
 			Entrenamiento entrenamiento5 = new Entrenamiento();
+			entrenamiento5.setNumber(5);
 			entrenamiento5.setTitulo("ET");
 			entrenamiento5.setDistancia(2000);
 			entrenamiento5.setFechaIni("07/07/2021");
@@ -95,7 +103,8 @@ public class MainProgram {
 			entrenamiento5.setDeporte("bici");
 			
 			Entrenamiento entrenamiento6 = new Entrenamiento();
-			entrenamiento6.setTitulo("Maraton");
+			entrenamiento6.setNumber(6);
+			entrenamiento6.setTitulo("KORRIKA");
 			entrenamiento6.setDistancia(10000);
 			entrenamiento6.setFechaIni("12/11/2021");
 			entrenamiento6.setDuracion(300);
@@ -105,23 +114,24 @@ public class MainProgram {
 			
 			//ListasDeEntrenamientos
 			ArrayList<Entrenamiento> entrenamientos = new ArrayList<>();
-			entrenamientos.add(entrenamiento2);
-			entrenamientos.add(entrenamiento1);		
+			entrenamientos.add(entrenamiento1);
+			entrenamientos.add(entrenamiento2);		
 					
 			ArrayList<Entrenamiento> entrenamientos2 = new ArrayList<>();
 			entrenamientos2.add(entrenamiento3);
 			entrenamientos2.add(entrenamiento4);		
 			
 			ArrayList<Entrenamiento> entrenamientos3 = new ArrayList<>();
-			entrenamientos3.add(entrenamiento3);
-			entrenamientos3.add(entrenamiento4);	
-			
-			
+			entrenamientos3.add(entrenamiento5);
+			entrenamientos3.add(entrenamiento6);	
+				
 			
 			//Usuarios
-			User user0 = new UserLocal();		
+			UserLocal user0 = new UserLocal();		
+			user0.setNumber(0);
 			user0.setEmail("thomas@gmail.com");
 			user0.setNickname("Thomas");
+			user0.setPassword("thomas");
 			user0.setAltura(0);
 			user0.setPeso(0);
 			user0.setFreqcardiacamax(0);
@@ -133,6 +143,7 @@ public class MainProgram {
 			user0.setRetosAceptados(retosAceptados);
 			
 			User user1 = new User();		
+			user1.setNumber(1);
 			user1.setEmail("billlie@gmail.com");
 			user1.setNickname("Billlie");
 			user1.setAltura(0);
@@ -145,7 +156,8 @@ public class MainProgram {
 			user1.setRetosAceptados(retosAceptados2);
 			user1.setTipoUsuario(TipoUsuario.GOOGLE);
 			
-			User user2 = new User();		
+			User user2 = new User();	
+			user2.setNumber(2);
 			user2.setEmail("astro@hotmail.com");
 			user2.setNickname("Astro");	
 			user2.setAltura(0);
@@ -153,20 +165,59 @@ public class MainProgram {
 			user2.setFreqcardiacamax(0);
 			user2.setFreqcardireposo(0);;
 			user2.setRpm(0);
-			user2.setEntrenamientos(entrenamientos2);
+			user2.setEntrenamientos(entrenamientos3);
 			List<Reto> retosAceptados3 = new ArrayList<Reto>();
 			user2.setRetosAceptados(retosAceptados3);
 			user2.setTipoUsuario(TipoUsuario.FACEBOOK);
-			
-						
+					
 			//Save Users in the DB
-			UserDAO.getInstance().save(user0);
-			UserDAO.getInstance().save(user1);
-			UserDAO.getInstance().save(user2);
+//			UserLocalDAO.getInstance().save(user0);
+//			UserDAO.getInstance().save(user1);
+//			UserDAO.getInstance().save(user2);			
+			
+			
+			for (User u : UserDAO.getInstance().getAll()) {
+				System.out.println("====" + u.getNickname() + "====");
+				if(u.getTipoUsuario().equals(TipoUsuario.EMAIL)) {
+					System.out.println(((UserLocal)u).checkPassword("thomas"));
+				}
+				for (Entrenamiento e : u.getEntrenamientos()) {
+					System.out.println(e.getTitulo());
+				}
+				System.out.println("\n");
+			}
+			
+			
+			//Create Retos
+			Reto reto1 = new Reto();
+			reto1.setTitulo("Pedalear Muchisimo");
+			reto1.setDescripcion("¡quema tu bici!");
+			reto1.setCreador(user1);
+			reto1.setFechaInicio("01/01/2021");
+			reto1.setFechaFin("31/12/2021");
+			reto1.setObjetivo(2800);
+			reto1.setDeporte("bici");
+
+			Reto reto2 = new Reto();
+			reto2.setTitulo("Correr Muchisimo");
+			reto2.setDescripcion("Huye de la policia");
+			reto2.setCreador(user0);
+			reto2.setFechaInicio("31/10/2021");
+			reto2.setFechaFin("31/12/2021");
+			reto2.setObjetivo(300);
+			reto2.setDeporte("correr");
+			
+//			RetoDAO.getInstance().save(reto1);
+//			RetoDAO.getInstance().save(reto2);
+			
 			
 		} catch (Exception ex) {
 			System.out.println(" $ Error initializing data base:" + ex.getMessage());
-		}			
+		}		
+		
+		
+
+		
 	}
 
 }

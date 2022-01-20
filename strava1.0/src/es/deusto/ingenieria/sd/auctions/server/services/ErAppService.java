@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import es.deusto.ingenieria.sd.auctions.server.data.dao.RetoDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
@@ -27,7 +28,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 //TODO: Implement Singleton Pattern
 public class ErAppService {
 
-	private List<Reto> retos = new ArrayList<>();
+//	private List<Reto> retos = new ArrayList<>();
 	private RetoAssembler assemblerReto = new RetoAssembler();
 
 	public ErAppService() {
@@ -35,46 +36,49 @@ public class ErAppService {
 	}
 
 	private void initilizeData() {
-		//Create Users
-		UserLocal user0 = new UserLocal();
-		user0.setEmail("thomas.e2001@gmail.com");
-		user0.setNickname("Thomas");
-		user0.setPassword("$!9PhNz,");
-
-		UserLocal user1 = new UserLocal();
-		user1.setEmail("sample@gmail.com");
-		user1.setNickname("buyer33");		
-		user1.setPassword("hqc`}3Hb");
-
-		//Create Reto
-		Reto reto1 = new Reto();
-		reto1.setTitulo("Pedalear Muchisimo");
-		reto1.setDescripcion("¡quema tu bici!");
-		reto1.setCreador(user1);
-		reto1.setFechaInicio("01/01/2021");
-		reto1.setFechaFin("31/12/2021");
-		reto1.setObjetivo(2800);
-		reto1.setDeporte("bici");
-
-		Reto reto2 = new Reto();
-		reto2.setTitulo("Correr Muchisimo");
-		reto2.setDescripcion("Huye de la policia");
-		reto2.setCreador(user0);
-		reto2.setFechaInicio("31/10/2021");
-		reto2.setFechaFin("31/12/2021");
-		reto2.setObjetivo(300);
-		reto2.setDeporte("correr");
-
-		retos.add(reto1);
-		retos.add(reto2);
+//		//Create Users
+//		UserLocal user0 = new UserLocal();
+//		user0.setEmail("thomas.e2001@gmail.com");
+//		user0.setNickname("Thomas");
+//		user0.setPassword("$!9PhNz,");
+//
+//		UserLocal user1 = new UserLocal();
+//		user1.setEmail("sample@gmail.com");
+//		user1.setNickname("buyer33");		
+//		user1.setPassword("hqc`}3Hb");
+//
+//		//Create Reto
+//		Reto reto1 = new Reto();
+//		reto1.setTitulo("Pedalear Muchisimo");
+//		reto1.setDescripcion("¡quema tu bici!");
+//		reto1.setCreador(user1);
+//		reto1.setFechaInicio("01/01/2021");
+//		reto1.setFechaFin("31/12/2021");
+//		reto1.setObjetivo(2800);
+//		reto1.setDeporte("bici");
+//
+//		Reto reto2 = new Reto();
+//		reto2.setTitulo("Correr Muchisimo");
+//		reto2.setDescripcion("Huye de la policia");
+//		reto2.setCreador(user0);
+//		reto2.setFechaInicio("31/10/2021");
+//		reto2.setFechaFin("31/12/2021");
+//		reto2.setObjetivo(300);
+//		reto2.setDeporte("correr");
+//
+//		retos.add(reto1);
+//		retos.add(reto2);
+//		
+//		RetoDAO.getInstance().save(reto1);
+//		RetoDAO.getInstance().save(reto2);
 
 	}
 
 
 
 	public ArrayList<RetoDTO> getRetos(String deporte) {
-		ArrayList<RetoDTO> retosArray = new ArrayList<>();
-		for (Reto r : this.retos) {
+		ArrayList<RetoDTO> retosArray= new ArrayList<>();
+		for (Reto r : RetoDAO.getInstance().getAll()) {
 			if (r.getDeporte().equalsIgnoreCase(deporte)) {
 				assemblerReto.getInstance();
 				RetoDTO dto = assemblerReto.retoToDTO(r);
@@ -82,10 +86,6 @@ public class ErAppService {
 			}
 		}	
 		return retosArray;
-	}
-
-	public List<Reto> getRetosNormales() {
-		return retos;
 	}
 
 	public void anyadirRetoARetos(RetoDTO reto, UserDTO user) {
@@ -99,22 +99,22 @@ public class ErAppService {
 		r.setFechaFin(reto.getFechaFin());
 		r.setObjetivo(reto.getObjetivo());
 		r.setTitulo(reto.getTitulo());
-
-		this.retos.add(r);
-
-
+		
+		RetoDAO.getInstance().save(r);
+//		this.retos.add(r);
 	}
 
 	public void quitarRetoARetos(String tituloReto) {
 
-		List<Reto> retosNuevos = new ArrayList<>();
-		for (Reto reto : this.retos) {
+//		List<Reto> retosNuevos = new ArrayList<>();
+		for (Reto reto : RetoDAO.getInstance().getAll()) {
 			if(!reto.getTitulo().matches(tituloReto)) {
-				retosNuevos.add(reto);
+//				retosNuevos.add(reto);
+				RetoDAO.getInstance().delete(reto);
 			}
 		}
-
-		this.retos = retosNuevos;			
+//		this.retos = retosNuevos;	
+		
 	}
 
 

@@ -22,6 +22,7 @@ public class RetoAceptadoAssembler {
 		uDTO.setNickname(reto.getCreador().getNickname());
 		
 		dto.setCreador(uDTO);
+		dto.setNumber(reto.getNumber());
 		dto.setDeporte(reto.getDeporte());
 		dto.setDescripcion(reto.getDescripcion());
 		dto.setFechaFin(reto.getFechaFin());

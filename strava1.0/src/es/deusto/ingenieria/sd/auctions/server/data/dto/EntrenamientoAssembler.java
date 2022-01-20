@@ -18,7 +18,7 @@ public class EntrenamientoAssembler {
 
 	public EntrenamientoDTO entrenamientoToDTO(Entrenamiento entrenamiento) {
 		EntrenamientoDTO dto = new EntrenamientoDTO();
-		
+		dto.setNumber(entrenamiento.getNumber());
 		dto.setTitulo(entrenamiento.getTitulo());
 		dto.setDeporte(entrenamiento.getDeporte());
 		dto.setDistancia(entrenamiento.getDistancia());

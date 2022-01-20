@@ -4,7 +4,7 @@ package es.deusto.ingenieria.sd.auctions.server.services;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import es.deusto.ingenieria.sd.auctions.server.data.dao.UserDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.TipoUsuario;
@@ -24,7 +24,7 @@ public class LoginAppService {
 
 	private UserAssembler assamblerUser = new UserAssembler();
 	private EntrenamientoAssembler assemblerEntrenamiento = new EntrenamientoAssembler();
-	private List<User> usuarios = new ArrayList<>();
+//	private List<User> usuarios = new ArrayList<>();
 	private GoogleServiceGateway registerServiceGateway = new GoogleServiceGateway();
 	private FacebookSocketClient client = new FacebookSocketClient("0.0.0.0", 35600);
 
@@ -57,87 +57,87 @@ public class LoginAppService {
 	public UserDTO getCheckedUsuario(String email, String password) {
 		UserDTO userQueVaASerRellenado = new UserDTO();
 
-		UserLocal uT = new UserLocal();		
-		uT.setEmail("thomas@gmail.com");
-		uT.setNickname("Thomas");		
-		uT.setPassword("thomas");
-		Entrenamiento entrenamiento1 = new Entrenamiento();
-		entrenamiento1.setTitulo("BiciMax");
-		entrenamiento1.setDistancia(200);
-		entrenamiento1.setFechaIni("11/01/2021");
-		entrenamiento1.setDuracion(20);
-		entrenamiento1.setHoraIni("12:22");
-		entrenamiento1.setDeporte("bici");
-		Entrenamiento entrenamiento2 = new Entrenamiento();
-		entrenamiento2.setTitulo("Maraton");
-		entrenamiento2.setDistancia(30);
-		entrenamiento2.setFechaIni("12/11/2021");
-		entrenamiento2.setDuracion(24);
-		entrenamiento2.setHoraIni("14:12");
-		entrenamiento2.setDeporte("correr");
-		ArrayList<Entrenamiento> entrenamientos = new ArrayList<>();
-		entrenamientos.add(entrenamiento2);
-		entrenamientos.add(entrenamiento1);		
-		uT.setEntrenamientos(entrenamientos);
-		List<Reto> retosAceptados = new ArrayList<Reto>();
-		uT.setRetosAceptados(retosAceptados);
-		uT.setTipoUsuario(TipoUsuario.EMAIL);
-		usuarios.add(uT);
-		
-		User uB = new User();		
-		uB.setEmail("billlie@gmail.com");
-		uB.setNickname("Billlie");		
-		Entrenamiento entrenamiento3 = new Entrenamiento();
-		entrenamiento3.setTitulo("Bicicleteando");
-		entrenamiento3.setDistancia(20);
-		entrenamiento3.setFechaIni("11/11/2021");
-		entrenamiento3.setDuracion(30);
-		entrenamiento3.setHoraIni("11:11");
-		entrenamiento3.setDeporte("bici");
-		Entrenamiento entrenamiento4 = new Entrenamiento();
-		entrenamiento4.setTitulo("EncontrarABilllie");
-		entrenamiento4.setDistancia(3000);
-		entrenamiento4.setFechaIni("12/12/2021");
-		entrenamiento4.setDuracion(2);
-		entrenamiento4.setHoraIni("10:20");
-		entrenamiento4.setDeporte("correr");
-		ArrayList<Entrenamiento> entrenamientos2 = new ArrayList<>();
-		entrenamientos2.add(entrenamiento3);
-		entrenamientos2.add(entrenamiento4);		
-		uB.setEntrenamientos(entrenamientos2);
-		List<Reto> retosAceptados2 = new ArrayList<Reto>();
-		uB.setRetosAceptados(retosAceptados2);
-		uB.setTipoUsuario(TipoUsuario.GOOGLE);
-		usuarios.add(uB);
-		
-		User uA = new User();		
-		uA.setEmail("astro@hotmail.com");
-		uA.setNickname("Astro");		
-		Entrenamiento entrenamiento5 = new Entrenamiento();
-		entrenamiento5.setTitulo("ET");
-		entrenamiento5.setDistancia(2000);
-		entrenamiento5.setFechaIni("07/07/2021");
-		entrenamiento5.setDuracion(10);
-		entrenamiento5.setHoraIni("00:30");
-		entrenamiento5.setDeporte("bici");
-		Entrenamiento entrenamiento6 = new Entrenamiento();
-		entrenamiento6.setTitulo("Maraton");
-		entrenamiento6.setDistancia(10000);
-		entrenamiento6.setFechaIni("12/11/2021");
-		entrenamiento6.setDuracion(300);
-		entrenamiento6.setHoraIni("14:12");
-		entrenamiento6.setDeporte("correr");
-		ArrayList<Entrenamiento> entrenamientos3 = new ArrayList<>();
-		entrenamientos3.add(entrenamiento3);
-		entrenamientos3.add(entrenamiento4);		
-		uA.setEntrenamientos(entrenamientos2);
-		List<Reto> retosAceptados3 = new ArrayList<Reto>();
-		uA.setRetosAceptados(retosAceptados3);
-		uA.setTipoUsuario(TipoUsuario.FACEBOOK);
-		usuarios.add(uA);
+//		UserLocal uT = new UserLocal();		
+//		uT.setEmail("thomas@gmail.com");
+//		uT.setNickname("Thomas");		
+//		uT.setPassword("thomas");
+//		Entrenamiento entrenamiento1 = new Entrenamiento();
+//		entrenamiento1.setTitulo("BiciMax");
+//		entrenamiento1.setDistancia(200);
+//		entrenamiento1.setFechaIni("11/01/2021");
+//		entrenamiento1.setDuracion(20);
+//		entrenamiento1.setHoraIni("12:22");
+//		entrenamiento1.setDeporte("bici");
+//		Entrenamiento entrenamiento2 = new Entrenamiento();
+//		entrenamiento2.setTitulo("Maraton");
+//		entrenamiento2.setDistancia(30);
+//		entrenamiento2.setFechaIni("12/11/2021");
+//		entrenamiento2.setDuracion(24);
+//		entrenamiento2.setHoraIni("14:12");
+//		entrenamiento2.setDeporte("correr");
+//		ArrayList<Entrenamiento> entrenamientos = new ArrayList<>();
+//		entrenamientos.add(entrenamiento2);
+//		entrenamientos.add(entrenamiento1);		
+//		uT.setEntrenamientos(entrenamientos);
+//		List<Reto> retosAceptados = new ArrayList<Reto>();
+//		uT.setRetosAceptados(retosAceptados);
+//		uT.setTipoUsuario(TipoUsuario.EMAIL);
+//		usuarios.add(uT);
+//		
+//		User uB = new User();		
+//		uB.setEmail("billlie@gmail.com");
+//		uB.setNickname("Billlie");		
+//		Entrenamiento entrenamiento3 = new Entrenamiento();
+//		entrenamiento3.setTitulo("Bicicleteando");
+//		entrenamiento3.setDistancia(20);
+//		entrenamiento3.setFechaIni("11/11/2021");
+//		entrenamiento3.setDuracion(30);
+//		entrenamiento3.setHoraIni("11:11");
+//		entrenamiento3.setDeporte("bici");
+//		Entrenamiento entrenamiento4 = new Entrenamiento();
+//		entrenamiento4.setTitulo("EncontrarABilllie");
+//		entrenamiento4.setDistancia(3000);
+//		entrenamiento4.setFechaIni("12/12/2021");
+//		entrenamiento4.setDuracion(2);
+//		entrenamiento4.setHoraIni("10:20");
+//		entrenamiento4.setDeporte("correr");
+//		ArrayList<Entrenamiento> entrenamientos2 = new ArrayList<>();
+//		entrenamientos2.add(entrenamiento3);
+//		entrenamientos2.add(entrenamiento4);		
+//		uB.setEntrenamientos(entrenamientos2);
+//		List<Reto> retosAceptados2 = new ArrayList<Reto>();
+//		uB.setRetosAceptados(retosAceptados2);
+//		uB.setTipoUsuario(TipoUsuario.GOOGLE);
+//		usuarios.add(uB);
+//		
+//		User uA = new User();		
+//		uA.setEmail("astro@hotmail.com");
+//		uA.setNickname("Astro");		
+//		Entrenamiento entrenamiento5 = new Entrenamiento();
+//		entrenamiento5.setTitulo("ET");
+//		entrenamiento5.setDistancia(2000);
+//		entrenamiento5.setFechaIni("07/07/2021");
+//		entrenamiento5.setDuracion(10);
+//		entrenamiento5.setHoraIni("00:30");
+//		entrenamiento5.setDeporte("bici");
+//		Entrenamiento entrenamiento6 = new Entrenamiento();
+//		entrenamiento6.setTitulo("Maraton");
+//		entrenamiento6.setDistancia(10000);
+//		entrenamiento6.setFechaIni("12/11/2021");
+//		entrenamiento6.setDuracion(300);
+//		entrenamiento6.setHoraIni("14:12");
+//		entrenamiento6.setDeporte("correr");
+//		ArrayList<Entrenamiento> entrenamientos3 = new ArrayList<>();
+//		entrenamientos3.add(entrenamiento3);
+//		entrenamientos3.add(entrenamiento4);		
+//		uA.setEntrenamientos(entrenamientos2);
+//		List<Reto> retosAceptados3 = new ArrayList<Reto>();
+//		uA.setRetosAceptados(retosAceptados3);
+//		uA.setTipoUsuario(TipoUsuario.FACEBOOK);
+//		usuarios.add(uA);
 
 
-		for (User usuario : usuarios) {
+		for (User usuario : UserDAO.getInstance().getAll()) {
 
 			if(usuario.getTipoUsuario() == TipoUsuario.EMAIL) {
 				UserLocal u = (UserLocal) usuario;

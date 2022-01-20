@@ -26,15 +26,15 @@ public class UserAssembler {
 
 	public UserDTO userToDTO(User user) {
 		UserDTO dto = new UserDTO();
-
+		
+		dto.setNumber(user.getNumber());
 		dto.setEmail(user.getEmail());
 		dto.setNickname(user.getNickname());
-		
-		//JOptionPane.showMessageDialog(null,user.getEntrenamientos().size());
-		
+				
 		List<EntrenamientoDTO> listaEntreno = new ArrayList<>();
 		for (Entrenamiento entrenamiento : user.getEntrenamientos()) {
 			EntrenamientoDTO eDTO = new EntrenamientoDTO();
+			eDTO.setNumber(entrenamiento.getNumber());
 			eDTO.setTitulo(entrenamiento.getTitulo());
 			eDTO.setDeporte(entrenamiento.getDeporte());
 			eDTO.setDistancia(entrenamiento.getDistancia());
@@ -50,6 +50,7 @@ public class UserAssembler {
 		List<RetoAceptadoDTO> listaretos = new ArrayList<>();
 		for (Reto reto : user.getRetosAceptados()) {
 			RetoAceptadoDTO rDTO = new RetoAceptadoDTO();
+			rDTO.setNumber(reto.getNumber());
 			rDTO.setTitulo(reto.getTitulo());
 			rDTO.setDescripcion(reto.getDescripcion());
 			rDTO.setDeporte(reto.getDeporte());
