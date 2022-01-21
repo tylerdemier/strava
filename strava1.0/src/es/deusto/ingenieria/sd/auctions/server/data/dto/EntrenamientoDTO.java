@@ -5,7 +5,6 @@ import java.util.Date;
 
 public class EntrenamientoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int number;
 	private String titulo;	
 	private String deporte;	
 	private float distancia;
@@ -13,14 +12,6 @@ public class EntrenamientoDTO implements Serializable {
 	private String horaIni;
 	private long duracion;	
 
-	
-	public int getNumber() {
-		return number;
-	}
-
-	public void setNumber(int number) {
-		this.number = number;
-	}
 	
 	public String getTitulo() {
 		return titulo;

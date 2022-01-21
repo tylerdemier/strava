@@ -58,7 +58,6 @@ public class MainProgram {
 			
 			//Entrenamientos
 			Entrenamiento entrenamiento1 = new Entrenamiento();
-			entrenamiento1.setNumber(1);
 			entrenamiento1.setTitulo("BiciMax");
 			entrenamiento1.setDistancia(200);
 			entrenamiento1.setFechaIni("11/01/2021");
@@ -67,7 +66,6 @@ public class MainProgram {
 			entrenamiento1.setDeporte("bici");
 			
 			Entrenamiento entrenamiento2 = new Entrenamiento();
-			entrenamiento2.setNumber(2);
 			entrenamiento2.setTitulo("Maraton");
 			entrenamiento2.setDistancia(30);
 			entrenamiento2.setFechaIni("12/11/2021");
@@ -76,7 +74,6 @@ public class MainProgram {
 			entrenamiento2.setDeporte("correr");
 			
 			Entrenamiento entrenamiento3 = new Entrenamiento();
-			entrenamiento3.setNumber(3);
 			entrenamiento3.setTitulo("LllevameEnMiBicicleta");
 			entrenamiento3.setDistancia(20);
 			entrenamiento3.setFechaIni("11/11/2021");
@@ -85,7 +82,6 @@ public class MainProgram {
 			entrenamiento3.setDeporte("bici");
 			
 			Entrenamiento entrenamiento4 = new Entrenamiento();
-			entrenamiento4.setNumber(4);
 			entrenamiento4.setTitulo("EncontrarABilllie");
 			entrenamiento4.setDistancia(3000);
 			entrenamiento4.setFechaIni("12/12/2021");
@@ -94,7 +90,6 @@ public class MainProgram {
 			entrenamiento4.setDeporte("correr");
 			
 			Entrenamiento entrenamiento5 = new Entrenamiento();
-			entrenamiento5.setNumber(5);
 			entrenamiento5.setTitulo("ET");
 			entrenamiento5.setDistancia(2000);
 			entrenamiento5.setFechaIni("07/07/2021");
@@ -103,7 +98,6 @@ public class MainProgram {
 			entrenamiento5.setDeporte("bici");
 			
 			Entrenamiento entrenamiento6 = new Entrenamiento();
-			entrenamiento6.setNumber(6);
 			entrenamiento6.setTitulo("KORRIKA");
 			entrenamiento6.setDistancia(10000);
 			entrenamiento6.setFechaIni("12/11/2021");
@@ -128,7 +122,6 @@ public class MainProgram {
 			
 			//Usuarios
 			UserLocal user0 = new UserLocal();		
-			user0.setNumber(0);
 			user0.setEmail("thomas@gmail.com");
 			user0.setNickname("Thomas");
 			user0.setPassword("thomas");
@@ -143,7 +136,6 @@ public class MainProgram {
 			user0.setRetosAceptados(retosAceptados);
 			
 			User user1 = new User();		
-			user1.setNumber(1);
 			user1.setEmail("billlie@gmail.com");
 			user1.setNickname("Billlie");
 			user1.setAltura(0);
@@ -157,7 +149,6 @@ public class MainProgram {
 			user1.setTipoUsuario(TipoUsuario.GOOGLE);
 			
 			User user2 = new User();	
-			user2.setNumber(2);
 			user2.setEmail("astro@hotmail.com");
 			user2.setNickname("Astro");	
 			user2.setAltura(0);
@@ -170,11 +161,10 @@ public class MainProgram {
 			user2.setRetosAceptados(retosAceptados3);
 			user2.setTipoUsuario(TipoUsuario.FACEBOOK);
 					
-			//Save Users in the DB
 //			UserLocalDAO.getInstance().save(user0);
 //			UserDAO.getInstance().save(user1);
 //			UserDAO.getInstance().save(user2);			
-			
+//			
 			
 			for (User u : UserDAO.getInstance().getAll()) {
 				System.out.println("====" + u.getNickname() + "====");

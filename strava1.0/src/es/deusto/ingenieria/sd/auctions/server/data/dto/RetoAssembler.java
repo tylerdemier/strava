@@ -19,7 +19,6 @@ public class RetoAssembler {
 	public RetoDTO retoToDTO(Reto reto) {
 		RetoDTO dto = new RetoDTO();
 		
-		dto.setNumber(reto.getNumber());
 		dto.setTitulo(reto.getTitulo());
 		dto.setDeporte(reto.getDeporte());
 		dto.setObjetivo(reto.getObjetivo());

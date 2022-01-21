@@ -13,23 +13,12 @@ import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable(detachable="true")
 public class Entrenamiento {
-	@PrimaryKey
-	private int number;
 	private String titulo;	
 	private String deporte;	
 	private float distancia;
 	private String fechaIni;	
 	private String horaIni;
 	private long duracion;	
-	
-	
-	public int getNumber() {
-		return number;
-	}
-
-	public void setNumber(int number) {
-		this.number = number;
-	}
 	
 	public String getTitulo() {
 		return titulo;

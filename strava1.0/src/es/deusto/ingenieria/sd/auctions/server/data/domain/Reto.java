@@ -11,8 +11,6 @@ import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable(detachable="true")
 public class Reto {	
-	@PrimaryKey
-	private int number;
 	private String titulo;
 	private String descripcion;
 	private String deporte; 
@@ -22,15 +20,6 @@ public class Reto {
 	
 	@Persistent(defaultFetchGroup="true")
 	private User creador;	
-	
-	
-	public int getNumber() {
-		return number;
-	}
-
-	public void setNumber(int number) {
-		this.number = number;
-	}	
 	
 	public String getTitulo() {
 		return titulo;
