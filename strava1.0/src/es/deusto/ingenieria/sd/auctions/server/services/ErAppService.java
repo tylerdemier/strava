@@ -144,37 +144,17 @@ public class ErAppService {
 
 
 	public void crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion) {
-
 		User u = new User();
 		u = UserDAO.getInstance().find(usuarioDTO.getNickname());
-
-		UserDAO.getInstance().delete(UserDAO.getInstance().find(usuarioDTO.getNickname()));
-		u = UserDAO.getInstance().find(usuarioDTO.getNickname());
-//		for (User user : UserDAO.getInstance().getAll()) {
-//			if(user.getNickname().matches(usuarioDTO.getNickname())) {
-//				UserDAO.getInstance().delete(user);
-//					u = user;
-	//				u.setEmail(user.getEmail());
-	//				u.setNickname(user.getNickname());
-	//				try {
-	//					((UserLocal)u).setPassword(((UserLocal)u).getPassword()); 
-	//				} catch (Exception e) {
-	//					// TODO: handle exception
-	//				}
-	//				
-	//				u.setPeso(user.getPeso());
-	//				u.setRpm(user.getRpm());
-	//				u.setFreqcardiacamax(user.getFreqcardiacamax());
-	//				u.setFreqcardireposo(user.getFreqcardireposo());
-	//				u.setAltura(user.getAltura());
-	//				
-	//				u.setEntrenamientos(user.getEntrenamientos());
-	//				u.setRetosAceptados(user.getRetosAceptados());
-	//				u.setTipoUsuario(user.getTipoUsuario());
-//			
-//			}
-//		}
 		
+		for (User user : UserDAO.getInstance().getAll()) {
+			if(user.getNickname().matches(usuarioDTO.getNickname())) {
+				u = user;
+			}
+		}
+		
+		UserDAO.getInstance().delete(UserDAO.getInstance().find(usuarioDTO.getNickname()));
+
 		Entrenamiento e2 = new Entrenamiento();
 		e2.setDeporte(deporte);
 		e2.setDistancia(distancia);
@@ -184,10 +164,19 @@ public class ErAppService {
 		e2.setTitulo(titulo);
 
 		u.getEntrenamientos().add(e2);
-		
-
+		//NotWorking???S
+		EntrenamientoAssembler eA = new EntrenamientoAssembler(); 
+		usuarioDTO.getEntrenamientos().add(eA.entrenamientoToDTO(e2));
+	
 		UserDAO.getInstance().save(u);
 
+//		for (User user : UserDAO.getInstance().getAll()) {
+//			System.out.println("Al Guardar: " + user.getNickname());
+//			for (Entrenamiento e : user.getEntrenamientos()) {
+//				System.out.println("	Definitvo: " + e.getTitulo());
+//			}
+//		}
+		
 	}
 
 	

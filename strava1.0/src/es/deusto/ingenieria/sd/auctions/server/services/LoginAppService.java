@@ -210,7 +210,7 @@ public class LoginAppService {
 		for (User user : UserDAO.getInstance().getAll()) {
 			if(user.getNickname().matches(u.getNickname())) {
 //				UserDAO.getInstance().delete(user);
-				usuario = user;
+					usuario = user;
 			}
 		}
 		UserDAO.getInstance().delete(UserDAO.getInstance().find(u.getNickname()));
@@ -247,6 +247,15 @@ public class LoginAppService {
 		UserDAO.getInstance().save(usuario);
 		
 		UserAssembler uA = new UserAssembler();
+		
+		for (User user : UserDAO.getInstance().getAll()) {
+			System.out.println("Al Guardar F: " + user.getNickname());
+			for (Entrenamiento e : user.getEntrenamientos()) {
+				System.out.println("	Definitvo: " + e.getTitulo());
+			}
+		}
+		
+		
 		return uA.userToDTO(usuario);	
 	}
 
