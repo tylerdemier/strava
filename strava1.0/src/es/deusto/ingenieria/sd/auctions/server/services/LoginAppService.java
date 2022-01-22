@@ -69,9 +69,7 @@ public class LoginAppService {
 		u.setPeso(peso);
 		u.setRpm(rpm);
 
-
-		switch (tipo) {
-		case EMAIL: {
+		if(tipo.equals(TipoUsuarioDTO.EMAIL)) {
 			UserLocal uL = new UserLocal();
 			uL.setAltura(alt);
 			uL.setEntrenamientos(new ArrayList<>());
@@ -84,18 +82,18 @@ public class LoginAppService {
 			uL.setRetosAceptados(new ArrayList<>());
 			uL.setRpm(rpm);
 			uL.setTipoUsuario(TipoUsuario.EMAIL);
+			System.out.println("ESLOCAL!");
 			UserDAO.getInstance().save(uL);
-			
-		}
-		case GOOGLE:{
+		} else if(tipo.equals(TipoUsuarioDTO.GOOGLE)) {
 			u.setTipoUsuario(TipoUsuario.GOOGLE);
+			System.out.println("ESDEGOOGLE!");
 			UserDAO.getInstance().save(u);
-		}
-		case FACEBOOK:{
+		} else if(tipo.equals(TipoUsuarioDTO.FACEBOOK)) {
 			u.setTipoUsuario(TipoUsuario.FACEBOOK);
+			System.out.println("ESDEFACEBOOOK!");
 			UserDAO.getInstance().save(u);
 		}
-		}
+
 	}
 
 
@@ -145,7 +143,13 @@ public class LoginAppService {
 					return userQueVaASerRellenado;
 				}
 			} else if(usuario.getTipoUsuario() == TipoUsuario.GOOGLE) {
-				if(registerServiceGateway.checkCuenta(email, password)) {
+				System.out.println("==== LLEGO 4 ====");
+				if(registerServiceGateway.checkCuenta(email, password) && email.matches(usuario.getEmail())) {
+					System.out.println("==== LLEGO 5 ====");
+					System.out.println("Email:" + email);
+					System.out.println("password:" + password);
+					System.out.println("getemail:" + usuario.getEmail());
+					System.out.println("nick:" + usuario.getNickname());
 					userQueVaASerRellenado.setEmail(usuario.getEmail());
 					userQueVaASerRellenado.setNickname(usuario.getNickname());
 					List<EntrenamientoDTO> entrenamientosDTO = new ArrayList<>();
