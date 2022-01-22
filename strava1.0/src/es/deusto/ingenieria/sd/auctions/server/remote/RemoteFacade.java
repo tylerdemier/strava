@@ -73,17 +73,6 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public void anyadirRetoARetos(RetoDTO reto, UserDTO user) throws RemoteException {
-		bidService.anyadirRetoARetos(reto, user);		
-	}
-
-	@Override
-	public void quitarRetoARetos(String tituloReto) throws RemoteException {
-		bidService.quitarRetoARetos(tituloReto);
-		
-	}
-
-	@Override
 	public float calcularEstado(RetoAceptadoDTO reto, UserDTO user) throws RemoteException {
 		return bidService.calcularEstado(reto, user);
 	}
@@ -91,6 +80,27 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	@Override
 	public UserDTO getCheckedUsuario(String email, String password) throws RemoteException {
 		return loginService.getCheckedUsuario(email, password);
+	}
+
+	@Override
+	public void crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia,
+			String horaIni, int duracion) {
+		bidService.crearEntrenamiento(usuarioDTO, deporte, titulo, fechaIni, distancia, horaIni, duracion);
+		
+	}
+
+	@Override
+	public void crearReto(UserDTO user, String deporte, String titulo, String descripcion, String fechaIni,
+			String fechaFin, int objetivo) {
+		bidService.crearEntrenamiento(user, deporte, titulo, fechaIni, objetivo, fechaFin, objetivo);
+		
+	}
+
+	@Override
+	public void crearUsuario(TipoUsuarioDTO tipo, String email, String nickname, int alt, int fcm, int fcr, int peso,
+			int rpm) {
+		loginService.crearUsuario(tipo, email, nickname, alt, fcm, fcr, peso, rpm);
+		
 	}
 
 	

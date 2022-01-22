@@ -26,13 +26,13 @@ public interface IRemoteFacade extends Remote {
 	public ArrayList<RetoDTO> getRetos(String deporte) throws RemoteException;
 	
 	public UserDTO getCheckedUsuario(String email, String password) throws RemoteException;
-	
-	public void anyadirRetoARetos(RetoDTO reto, UserDTO user) throws RemoteException;
-	
-	public void quitarRetoARetos(String tituloReto) throws RemoteException;
-	
+			
 	public float calcularEstado(RetoAceptadoDTO reto, UserDTO user) throws RemoteException;
 	
+	public void crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion)  throws RemoteException;
 	
+	public void crearReto(UserDTO user, String deporte, String titulo, String descripcion, String fechaIni, String fechaFin, int objetivo)  throws RemoteException;
+	
+	public void crearUsuario(TipoUsuarioDTO tipo, String email, String nickname, int alt, int fcm, int fcr, int peso, int rpm)  throws RemoteException;
 	
 }
