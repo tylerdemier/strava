@@ -209,10 +209,11 @@ public class LoginAppService {
 		System.out.println("++++++ LLEGO "+u.getNickname()+" ++++++");
 		for (User user : UserDAO.getInstance().getAll()) {
 			if(user.getNickname().matches(u.getNickname())) {
-				UserDAO.getInstance().delete(user);
+//				UserDAO.getInstance().delete(user);
 				usuario = user;
 			}
 		}
+		UserDAO.getInstance().delete(UserDAO.getInstance().find(u.getNickname()));
 		
 		usuario.setEntrenamientos(new ArrayList<>());
 		System.out.println("++++++ LLEGO 1 ++++++");
