@@ -143,7 +143,7 @@ public class ErAppService {
 	}
 
 
-	public void crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion) {
+	public List<EntrenamientoDTO> crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion) {
 		User u = new User();
 		u = UserDAO.getInstance().find(usuarioDTO.getNickname());
 		
@@ -164,11 +164,20 @@ public class ErAppService {
 		e2.setTitulo(titulo);
 
 		u.getEntrenamientos().add(e2);
-		//NotWorking???S
-		EntrenamientoAssembler eA = new EntrenamientoAssembler(); 
-		usuarioDTO.getEntrenamientos().add(eA.entrenamientoToDTO(e2));
 	
 		UserDAO.getInstance().save(u);
+		
+		//NotWorking???S
+		EntrenamientoAssembler eA = new EntrenamientoAssembler(); 
+		ArrayList<EntrenamientoDTO> arrayASettear = new ArrayList<>();
+			for (Entrenamiento e : u.getEntrenamientos()) {
+				arrayASettear.add(eA.entrenamientoToDTO(e));
+				System.out.println("____"+e.getTitulo()+"____");
+		}
+//		usuarioDTO.setEntrenamientos(arrayASettear);
+		
+		return arrayASettear;
+		
 
 //		for (User user : UserDAO.getInstance().getAll()) {
 //			System.out.println("Al Guardar: " + user.getNickname());

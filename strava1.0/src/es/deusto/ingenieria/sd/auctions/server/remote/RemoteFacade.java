@@ -83,16 +83,16 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public void crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia,
+	public List<EntrenamientoDTO> crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia,
 			String horaIni, int duracion) {
-		bidService.crearEntrenamiento(usuarioDTO, deporte, titulo, fechaIni, distancia, horaIni, duracion);
+		return bidService.crearEntrenamiento(usuarioDTO, deporte, titulo, fechaIni, distancia, horaIni, duracion);
 		
 	}
 
 	@Override
 	public void crearReto(UserDTO user, String deporte, String titulo, String descripcion, String fechaIni,
 			String fechaFin, int objetivo) {
-		bidService.crearEntrenamiento(user, deporte, titulo, fechaIni, objetivo, fechaFin, objetivo);
+		bidService.crearReto(user, deporte, titulo, descripcion, fechaIni, fechaFin, objetivo);
 		
 	}
 

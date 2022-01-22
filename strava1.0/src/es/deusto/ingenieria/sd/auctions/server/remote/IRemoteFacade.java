@@ -29,7 +29,7 @@ public interface IRemoteFacade extends Remote {
 			
 	public float calcularEstado(RetoAceptadoDTO reto, UserDTO user) throws RemoteException;
 	
-	public void crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion)  throws RemoteException;
+	public List<EntrenamientoDTO> crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion)  throws RemoteException;
 	
 	public void crearReto(UserDTO user, String deporte, String titulo, String descripcion, String fechaIni, String fechaFin, int objetivo)  throws RemoteException;
 	
