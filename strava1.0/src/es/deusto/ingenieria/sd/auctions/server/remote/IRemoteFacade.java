@@ -33,6 +33,7 @@ public interface IRemoteFacade extends Remote {
 	
 	public void crearReto(UserDTO user, String deporte, String titulo, String descripcion, String fechaIni, String fechaFin, int objetivo)  throws RemoteException;
 	
-	public void crearUsuario(TipoUsuarioDTO tipo, String email, String nickname, int alt, int fcm, int fcr, int peso, int rpm)  throws RemoteException;
+	public void crearUsuario(TipoUsuarioDTO tipo, String email, String nickname, String password, int alt, int fcm, int fcr, int peso, int rpm)  throws RemoteException;
 	
+	public UserDTO actualizarUser(UserDTO u) throws RemoteException;
 }

@@ -97,10 +97,15 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public void crearUsuario(TipoUsuarioDTO tipo, String email, String nickname, int alt, int fcm, int fcr, int peso,
+	public void crearUsuario(TipoUsuarioDTO tipo, String email, String nickname, String password, int alt, int fcm, int fcr, int peso,
 			int rpm) {
-		loginService.crearUsuario(tipo, email, nickname, alt, fcm, fcr, peso, rpm);
+		loginService.crearUsuario(tipo, email, nickname, password, alt, fcm, fcr, peso, rpm);
 		
+	}
+
+	@Override
+	public UserDTO actualizarUser(UserDTO u) throws RemoteException {
+		return loginService.actualizarUser(u);
 	}
 
 	

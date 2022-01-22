@@ -13,6 +13,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.UserLocal;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.TipoUsuarioDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
@@ -55,7 +56,7 @@ public class LoginAppService {
 
 
 
-	public void crearUsuario(TipoUsuarioDTO tipo, String email, String nickname, int alt, int fcm, int fcr, int peso, int rpm) {
+	public void crearUsuario(TipoUsuarioDTO tipo, String email, String nickname, String password,int alt, int fcm, int fcr, int peso, int rpm) {
 		User u = new User();
 
 		u.setEmail(email);
@@ -71,17 +72,30 @@ public class LoginAppService {
 
 		switch (tipo) {
 		case EMAIL: {
-			u.setTipoUsuario(TipoUsuario.EMAIL);
+			UserLocal uL = new UserLocal();
+			uL.setAltura(alt);
+			uL.setEntrenamientos(new ArrayList<>());
+			uL.setEmail(email);
+			uL.setFreqcardiacamax(fcm);
+			uL.setFreqcardireposo(fcr);
+			uL.setNickname(nickname);
+			uL.setPassword(password);
+			uL.setPeso(peso);
+			uL.setRetosAceptados(new ArrayList<>());
+			uL.setRpm(rpm);
+			uL.setTipoUsuario(TipoUsuario.EMAIL);
+			UserDAO.getInstance().save(uL);
+			
 		}
 		case GOOGLE:{
 			u.setTipoUsuario(TipoUsuario.GOOGLE);
+			UserDAO.getInstance().save(u);
 		}
 		case FACEBOOK:{
 			u.setTipoUsuario(TipoUsuario.FACEBOOK);
+			UserDAO.getInstance().save(u);
 		}
 		}
-		
-		UserDAO.getInstance().save(u);
 	}
 
 
@@ -188,6 +202,53 @@ public class LoginAppService {
 
 		return userQueVaASerRellenado;
 	}
+	
+	
+	public UserDTO actualizarUser(UserDTO u) {
+		User usuario = new User();
+		System.out.println("++++++ LLEGO "+u.getNickname()+" ++++++");
+		for (User user : UserDAO.getInstance().getAll()) {
+			if(user.getNickname().matches(u.getNickname())) {
+				UserDAO.getInstance().delete(user);
+				usuario = user;
+			}
+		}
+		
+		usuario.setEntrenamientos(new ArrayList<>());
+		System.out.println("++++++ LLEGO 1 ++++++");
+		for (EntrenamientoDTO eDTO : u.getEntrenamientos()) {
+			Entrenamiento e = new Entrenamiento();
+			e.setDeporte(eDTO.getDeporte());
+			e.setDistancia(eDTO.getDistancia());
+			e.setDuracion(eDTO.getDuracion());
+			e.setFechaIni(eDTO.getFechaIni());
+			e.setHoraIni(eDTO.getHoraIni());
+			e.setTitulo(eDTO.getTitulo());
+			usuario.getEntrenamientos().add(e);
+		}
+	
+		usuario.setRetosAceptados(new ArrayList<>());
+		System.out.println("++++++ LLEGO 2 ++++++");
+		for (RetoDTO rDTO : u.getRetosAceptados()) {
+			Reto r = new Reto();
+			User creador = new User();
+			creador.setNickname(rDTO.getCreador().getNickname());
+			r.setCreador(creador);
+			r.setDeporte(rDTO.getDeporte());
+			r.setDescripcion(rDTO.getDescripcion());
+			r.setFechaFin(rDTO.getFechaFin());
+			r.setFechaInicio(rDTO.getFechaInicio());
+			r.setObjetivo(rDTO.getObjetivo());
+			r.setTitulo(rDTO.getTitulo());
+			usuario.getRetosAceptados().add(r);
+		}
+		System.out.println("++++++ LLEGO 3 ++++++");
+		UserDAO.getInstance().save(usuario);
+		
+		UserAssembler uA = new UserAssembler();
+		return uA.userToDTO(usuario);	
+	}
+
 
 }
 

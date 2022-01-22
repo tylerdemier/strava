@@ -29,7 +29,7 @@ public class UserAssembler {
 		
 		dto.setEmail(user.getEmail());
 		dto.setNickname(user.getNickname());
-				
+		System.out.println("*AQUI 0*");		
 		List<EntrenamientoDTO> listaEntreno = new ArrayList<>();
 		for (Entrenamiento entrenamiento : user.getEntrenamientos()) {
 			EntrenamientoDTO eDTO = new EntrenamientoDTO();
@@ -44,7 +44,7 @@ public class UserAssembler {
 		
 		dto.setEntrenamientos(listaEntreno);
 
-		
+		System.out.println("*AQUI 1*");	
 		List<RetoAceptadoDTO> listaretos = new ArrayList<>();
 		for (Reto reto : user.getRetosAceptados()) {
 			RetoAceptadoDTO rDTO = new RetoAceptadoDTO();
@@ -59,15 +59,20 @@ public class UserAssembler {
 		}
 		
 		dto.setRetosAceptados(listaretos);
-		
-		if(user.getTipoUsuario().equals(TipoUsuario.GOOGLE)) {
-			dto.setTipoUsuario(TipoUsuarioDTO.GOOGLE);
-		} else if(user.getTipoUsuario().equals(TipoUsuario.FACEBOOK)) {
-			dto.setTipoUsuario(TipoUsuarioDTO.FACEBOOK);
-		}else if(user.getTipoUsuario().equals(TipoUsuario.EMAIL)) {
+		System.out.println("*AQUI 2*");	
+		switch (user.getTipoUsuario()) {
+		case EMAIL: {
 			dto.setTipoUsuario(TipoUsuarioDTO.EMAIL);
 		}
+		case GOOGLE: {
+			dto.setTipoUsuario(TipoUsuarioDTO.GOOGLE);
+		}
+		case FACEBOOK: {
+			dto.setTipoUsuario(TipoUsuarioDTO.FACEBOOK);
+		}
+		}
 		
+		System.out.println("*AQUI 3*");	
 		return dto;
 	}
 }

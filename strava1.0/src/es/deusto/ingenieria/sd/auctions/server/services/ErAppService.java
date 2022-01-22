@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -29,7 +30,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.UserDTO;
 //TODO: Implement Singleton Pattern
 public class ErAppService {
 
-//	private List<Reto> retos = new ArrayList<>();
+	//	private List<Reto> retos = new ArrayList<>();
 	private RetoAssembler assemblerReto = new RetoAssembler();
 
 	public ErAppService() {
@@ -119,15 +120,15 @@ public class ErAppService {
 		calendar.add(Calendar.HOUR_OF_DAY, hours);
 		return calendar.getTime();
 	}
-	
-	
+
+
 	public void crearReto(UserDTO user, String deporte, String titulo, String descripcion, String fechaIni, String fechaFin, int objetivo){
 		Reto reto = new Reto();
-		
+
 		User u = new User();
 		u.setNickname(user.getNickname());
 
-		
+
 		reto.setCreador(u);
 		reto.setDescripcion(descripcion);
 		reto.setDeporte(deporte);
@@ -136,16 +137,43 @@ public class ErAppService {
 		reto.setFechaFin(fechaFin);
 		reto.setFechaInicio(fechaIni);
 		reto.setObjetivo(objetivo);
-		
+
 
 		RetoDAO.getInstance().save(reto);
 	}
-	
-	
+
+
 	public void crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion) {
-		
+
 		User u = new User();
 		u = UserDAO.getInstance().find(usuarioDTO.getNickname());
+
+		UserDAO.getInstance().delete(UserDAO.getInstance().find(usuarioDTO.getNickname()));
+		u = UserDAO.getInstance().find(usuarioDTO.getNickname());
+//		for (User user : UserDAO.getInstance().getAll()) {
+//			if(user.getNickname().matches(usuarioDTO.getNickname())) {
+//				UserDAO.getInstance().delete(user);
+//					u = user;
+	//				u.setEmail(user.getEmail());
+	//				u.setNickname(user.getNickname());
+	//				try {
+	//					((UserLocal)u).setPassword(((UserLocal)u).getPassword()); 
+	//				} catch (Exception e) {
+	//					// TODO: handle exception
+	//				}
+	//				
+	//				u.setPeso(user.getPeso());
+	//				u.setRpm(user.getRpm());
+	//				u.setFreqcardiacamax(user.getFreqcardiacamax());
+	//				u.setFreqcardireposo(user.getFreqcardireposo());
+	//				u.setAltura(user.getAltura());
+	//				
+	//				u.setEntrenamientos(user.getEntrenamientos());
+	//				u.setRetosAceptados(user.getRetosAceptados());
+	//				u.setTipoUsuario(user.getTipoUsuario());
+//			
+//			}
+//		}
 		
 		Entrenamiento e2 = new Entrenamiento();
 		e2.setDeporte(deporte);
@@ -154,18 +182,18 @@ public class ErAppService {
 		e2.setFechaIni(fechaIni);
 		e2.setHoraIni(horaIni);
 		e2.setTitulo(titulo);
-		
+
 		u.getEntrenamientos().add(e2);
 		
-		for (User user : UserDAO.getInstance().getAll()) {
-			if(user.getNickname().matches(usuarioDTO.getNickname())) {
-				UserDAO.getInstance().delete(user);
-			}
-		}
-		
+
 		UserDAO.getInstance().save(u);
-		
+
 	}
+
+	
+	
+	
+	
 	
 
 

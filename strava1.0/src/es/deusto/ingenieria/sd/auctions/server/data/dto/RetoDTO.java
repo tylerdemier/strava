@@ -7,7 +7,6 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 
 public class RetoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;	
-	private int number;
 	private String titulo;
 	private String descripcion;
 	private String deporte;
@@ -15,15 +14,6 @@ public class RetoDTO implements Serializable {
 	private String fechaFin;
 	private long objetivo;	
 	private UserDTO creador;	
-
-	
-	public int getNumber() {
-		return number;
-	}
-
-	public void setNumber(int number) {
-		this.number = number;
-	}
 
 	public String getTitulo() {
 		return titulo;

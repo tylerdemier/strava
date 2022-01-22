@@ -161,10 +161,10 @@ public class MainProgram {
 			user2.setRetosAceptados(retosAceptados3);
 			user2.setTipoUsuario(TipoUsuario.FACEBOOK);
 					
-//			UserLocalDAO.getInstance().save(user0);
-//			UserDAO.getInstance().save(user1);
-//			UserDAO.getInstance().save(user2);			
-//			
+			UserLocalDAO.getInstance().save(user0);
+			UserDAO.getInstance().save(user1);
+			UserDAO.getInstance().save(user2);			
+			
 			
 			for (User u : UserDAO.getInstance().getAll()) {
 				System.out.println("====" + u.getNickname() + "====");
@@ -197,8 +197,8 @@ public class MainProgram {
 			reto2.setObjetivo(300);
 			reto2.setDeporte("correr");
 			
-//			RetoDAO.getInstance().save(reto1);
-//			RetoDAO.getInstance().save(reto2);
+			RetoDAO.getInstance().save(reto1);
+			RetoDAO.getInstance().save(reto2);
 			
 			
 		} catch (Exception ex) {
