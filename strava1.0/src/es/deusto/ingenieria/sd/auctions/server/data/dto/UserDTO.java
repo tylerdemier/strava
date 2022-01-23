@@ -17,16 +17,16 @@ public class UserDTO implements Serializable {
 	private String nickname;
 	private String email;
 	private TipoUsuarioDTO tipoUsuario;
-	private List<RetoDTO> retosAceptados = new ArrayList<>();
+	private List<RetoAceptadoDTO> retosAceptados = new ArrayList<>();
 	private List<EntrenamientoDTO> entrenamientos = new ArrayList<>();
 
 
-	public List<RetoDTO> getRetosAceptados() {
+	public List<RetoAceptadoDTO> getRetosAceptados() {
 		return retosAceptados;
 	}
 
 
-	public void setRetosAceptados(List<RetoDTO> retosAceptados) {
+	public void setRetosAceptados(List<RetoAceptadoDTO> retosAceptados) {
 		this.retosAceptados = retosAceptados;
 	}
 

@@ -1,6 +1,7 @@
 package es.deusto.ingenieria.sd.auctions.server.data.dto;
 
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
+import es.deusto.ingenieria.sd.auctions.server.data.domain.RetoAceptado;
 
 public class RetoAceptadoAssembler {
 	private static RetoAceptadoAssembler instance;
@@ -14,21 +15,18 @@ public class RetoAceptadoAssembler {
 		return instance;
 	}
 	
-	public RetoAceptadoDTO RetoAceptadoToDTO(Reto reto, UserDTO usuarioAceptador) {
+	public RetoAceptadoDTO retoAceptadoToDTO(RetoAceptado reto) {
 		RetoAceptadoDTO dto = new RetoAceptadoDTO();
-		
-		UserDTO uDTO = new UserDTO();
-		uDTO.setEmail(reto.getCreador().getEmail());
-		uDTO.setNickname(reto.getCreador().getNickname());
-		
-		dto.setCreador(uDTO);
+		UserDTO userDTO = new UserDTO();
+		userDTO.setNickname(reto.getCreador().getNickname());
+		dto.setCreador(userDTO);
 		dto.setDeporte(reto.getDeporte());
 		dto.setDescripcion(reto.getDescripcion());
 		dto.setFechaFin(reto.getFechaFin());
 		dto.setFechaInicio(reto.getFechaInicio());
 		dto.setObjetivo(reto.getObjetivo());
 		dto.setTitulo(reto.getTitulo());
-		dto.setPorcentajeCompletado(0);
+		dto.setPorcentajeCompletado(reto.getPorcentaje());
 		
 		return dto;
 	}

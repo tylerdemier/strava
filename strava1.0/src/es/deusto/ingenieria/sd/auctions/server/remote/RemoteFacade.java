@@ -105,12 +105,12 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 	@Override
 	public UserDTO actualizarUser(UserDTO u) throws RemoteException {
-		return loginService.actualizarUser(u);
+		return loginService.actualizarUser(u, erService);
 	}
 
 	@Override
 	public UserDTO aceptarReto(UserDTO userDTO, RetoDTO retoAAceptar) throws RemoteException {
-		return erService.aceptarReto(userDTO, retoAAceptar);
+		return erService.aceptarReto(userDTO, retoAAceptar, erService);
 	}
 
 	

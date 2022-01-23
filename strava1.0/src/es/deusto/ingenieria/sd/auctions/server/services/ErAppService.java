@@ -12,10 +12,12 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import es.deusto.ingenieria.sd.auctions.server.data.dao.EntrenamientoDAO;
+import es.deusto.ingenieria.sd.auctions.server.data.dao.RetoAceptadoDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.dao.RetoDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.dao.UserDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
+import es.deusto.ingenieria.sd.auctions.server.data.domain.RetoAceptado;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.UserLocal;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoAssembler;
@@ -47,7 +49,7 @@ public class ErAppService {
 		for (Reto r : RetoDAO.getInstance().getAll()) {
 			if (r.getDeporte().equalsIgnoreCase(deporte)) {
 				assemblerReto.getInstance();
-				RetoDTO dto = assemblerReto.retoToDTO(r);
+				RetoDTO dto = assemblerReto.retoToDTO(r, this);
 				retosArray.add(dto);
 			}
 		}	
@@ -114,14 +116,14 @@ public class ErAppService {
 		}
 		
 		//Guardar en BD
-		for (Reto r : RetoDAO.getInstance().getAll()) {
-			if(r.getTitulo().matches(reto.getTitulo())) {
-				RetoDAO.getInstance().delete(r);
-				reto.setPorcentaje(resultado);
-				RetoDAO.getInstance().save(r);
-			}
-		}	
-		
+//		for (Reto r : RetoDAO.getInstance().getAll()) {
+//			if(r.getTitulo().matches(reto.getTitulo())) {
+//				RetoDAO.getInstance().delete(r);
+//				reto.setPorcentaje(resultado);
+//				RetoDAO.getInstance().save(r);
+//			}
+//		}	
+//		
 		return resultado;
 	}
 
@@ -212,7 +214,7 @@ public class ErAppService {
 	}
 
 
-	public UserDTO aceptarReto(UserDTO userDTO, RetoDTO retoAAceptar) {
+	public UserDTO aceptarReto(UserDTO userDTO, RetoDTO retoAAceptar, ErAppService er) {
 		System.out.println("&&&&& AQUI 0 &&&&&");
 		System.out.println(userDTO.getNickname());
 		User usuario = UserDAO.getInstance().find(userDTO.getNickname());
@@ -231,17 +233,29 @@ public class ErAppService {
 			}
 		}
 		System.out.println("&&&&& AQUI 2 &&&&&");
+		
+		RetoAceptado rA = new RetoAceptado();
+		rA.setCreador(reto.getCreador());
+		rA.setDeporte(reto.getDeporte());
+		rA.setDescripcion(reto.getDescripcion());
+		rA.setFechaFin(reto.getFechaFin());
+		rA.setFechaInicio(reto.getFechaInicio());
+		rA.setObjetivo(reto.getObjetivo());
+		rA.setTitulo(reto.getTitulo());
+		
+		rA.setPorcentaje(calcularEstado(retoAAceptar, userDTO));
 		if(usuario.getRetosAceptados() != null) {
 			System.out.println("&&&&& AQUI 2.0 &&&&&");
-			usuario.getRetosAceptados().add(reto);
+			usuario.getRetosAceptados().add(rA);
 		} else {
-			List<Reto> retosArray = new ArrayList<>();
+			List<RetoAceptado> retosArray = new ArrayList<>();
 			System.out.println("&&&&& AQUI 2.2 &&&&&");
-			retosArray.add(reto);
-			System.out.println("&&&&& AQUI 2.3 &&&&&");
 			usuario.setRetosAceptados(retosArray);
-
 		}
+		System.out.println("&&&&& AQUI 2.3 &&&&&");
+		RetoAceptadoDAO.getInstance().save(rA);
+		
+		
 		System.out.println("&&&&& AQUI 3 &&&&&");
 //		UserDAO.getInstance().delete(UserDAO.getInstance().find(userDTO.getNickname()));
 		System.out.println("&&&&& AQUI 4 &&&&&");
@@ -251,7 +265,7 @@ public class ErAppService {
 		UserAssembler uA = new UserAssembler();
 		UserDTO usuarioFinal;
 		System.out.println("&&&&& AQUI 6 &&&&&");
-		usuarioFinal = uA.userToDTO(usuario);
+		usuarioFinal = uA.userToDTO(usuario, er);
 		System.out.println("&&&&& AQUI 7 &&&&&");
 		return usuarioFinal;
 	}

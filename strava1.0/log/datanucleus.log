@@ -2173,3 +2173,463 @@ java.sql.SQLException: Failed to open the referenced table 'user'
 19:45:41,699 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
 19:45:41,699 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
 19:45:43,107 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+19:57:26,791 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+19:57:28,349 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+19:57:40,240 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+19:58:05,924 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+19:58:06,326 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,342 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,343 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,363 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,363 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,385 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,385 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,420 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,420 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,456 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,456 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,456 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,475 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,475 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,475 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,492 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,493 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,493 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,525 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,563 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,563 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,563 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,563 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,563 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,598 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,598 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,598 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:06,598 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+19:58:08,197 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+21:41:08,863 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+21:41:19,783 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+21:41:20,190 (main) ERROR [DataNucleus.Datastore] - Un error estaba tirado con ALTER TABLE `USER` ADD COLUMN `TIPOUSUARIO` VARCHAR(255) BINARY NULL : Table 'strava.user' doesn't exist
+java.sql.SQLSyntaxErrorException: Table 'strava.user' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatementList(AbstractTable.java:811)
+	at org.datanucleus.store.rdbms.table.TableImpl.validateColumns(TableImpl.java:256)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3585)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+
+21:41:20,220 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:20,250 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:20,250 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:20,250 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:20,250 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:20,250 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:20,310 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:20,310 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:20,310 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:20,310 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:20,436 (main) ERROR [DataNucleus.Datastore] - Una excepcion estaba tirada durante la addicion/validacion de algunas class(es) : Table 'strava.user' doesn't exist
+java.sql.SQLSyntaxErrorException: Table 'strava.user' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatementList(AbstractTable.java:811)
+	at org.datanucleus.store.rdbms.table.TableImpl.validateColumns(TableImpl.java:256)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3585)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+
+21:41:20,436 (main) ERROR [DataNucleus.Datastore] - Una excepcion estaba tirada durante la addicion/validacion de algunas class(es) : Failed to open the referenced table 'user'
+java.sql.SQLException: Failed to open the referenced table 'user'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.TableImpl.createForeignKeys(TableImpl.java:516)
+	at org.datanucleus.store.rdbms.table.TableImpl.createConstraints(TableImpl.java:419)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3653)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+
+21:41:20,436 (main) ERROR [DataNucleus.Datastore] - Una excepcion estaba tirada durante la addicion/validacion de algunas class(es) : Failed to open the referenced table 'user'
+java.sql.SQLException: Failed to open the referenced table 'user'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.TableImpl.createForeignKeys(TableImpl.java:516)
+	at org.datanucleus.store.rdbms.table.TableImpl.createConstraints(TableImpl.java:419)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3653)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+
+21:41:20,436 (main) ERROR [DataNucleus.Datastore] - Una excepcion estaba tirada durante la addicion/validacion de algunas class(es) : Failed to open the referenced table 'user'
+java.sql.SQLException: Failed to open the referenced table 'user'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.TableImpl.createForeignKeys(TableImpl.java:516)
+	at org.datanucleus.store.rdbms.table.TableImpl.createConstraints(TableImpl.java:419)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3653)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+
+21:41:20,437 (main) ERROR [DataNucleus.Datastore] - Una excepcion estaba tirada durante la addicion/validacion de algunas class(es) : Failed to open the referenced table 'user'
+java.sql.SQLException: Failed to open the referenced table 'user'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.TableImpl.createForeignKeys(TableImpl.java:516)
+	at org.datanucleus.store.rdbms.table.TableImpl.createConstraints(TableImpl.java:419)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3653)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+
+21:41:20,438 (main) ERROR [DataNucleus.Datastore.Schema] - Una excepcion estaba tirada durante la addicion/validacion de algunas class(es) : Hemos encontrado unos errores durante la validación o creación de las tablas. Los errores estan en el log, y estan adjuntados a esta excepción.
+Hemos encontrado unos errores durante la validación o creación de las tablas. Los errores estan en el log, y estan adjuntados a esta excepción.
+org.datanucleus.exceptions.NucleusDataStoreException: Hemos encontrado unos errores durante la validación o creación de las tablas. Los errores estan en el log, y estan adjuntados a esta excepción.
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3128)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'strava.user' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatementList(AbstractTable.java:811)
+	at org.datanucleus.store.rdbms.table.TableImpl.validateColumns(TableImpl.java:256)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3585)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	... 4 more
+Nested Throwables StackTrace:
+java.sql.SQLSyntaxErrorException: Table 'strava.user' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatementList(AbstractTable.java:811)
+	at org.datanucleus.store.rdbms.table.TableImpl.validateColumns(TableImpl.java:256)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3585)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+java.sql.SQLException: Failed to open the referenced table 'user'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.TableImpl.createForeignKeys(TableImpl.java:516)
+	at org.datanucleus.store.rdbms.table.TableImpl.createConstraints(TableImpl.java:419)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3653)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+java.sql.SQLException: Failed to open the referenced table 'user'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.TableImpl.createForeignKeys(TableImpl.java:516)
+	at org.datanucleus.store.rdbms.table.TableImpl.createConstraints(TableImpl.java:419)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3653)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+java.sql.SQLException: Failed to open the referenced table 'user'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.TableImpl.createForeignKeys(TableImpl.java:516)
+	at org.datanucleus.store.rdbms.table.TableImpl.createConstraints(TableImpl.java:419)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3653)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+java.sql.SQLException: Failed to open the referenced table 'user'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.TableImpl.createForeignKeys(TableImpl.java:516)
+	at org.datanucleus.store.rdbms.table.TableImpl.createConstraints(TableImpl.java:419)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3653)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+
+21:41:20,567 (main) ERROR [DataNucleus.SchemaTool] - DataNucleus SchemaTool ha lanzado una excepción. Por favor consulte el Log para ver más detalles: Hemos encontrado unos errores durante la validación o creación de las tablas. Los errores estan en el log, y estan adjuntados a esta excepción.
+Hemos encontrado unos errores durante la validación o creación de las tablas. Los errores estan en el log, y estan adjuntados a esta excepción.
+org.datanucleus.exceptions.NucleusDataStoreException: Hemos encontrado unos errores durante la validación o creación de las tablas. Los errores estan en el log, y estan adjuntados a esta excepción.
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3128)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'strava.user' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatementList(AbstractTable.java:811)
+	at org.datanucleus.store.rdbms.table.TableImpl.validateColumns(TableImpl.java:256)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3585)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	... 4 more
+Nested Throwables StackTrace:
+java.sql.SQLSyntaxErrorException: Table 'strava.user' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatementList(AbstractTable.java:811)
+	at org.datanucleus.store.rdbms.table.TableImpl.validateColumns(TableImpl.java:256)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3585)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+java.sql.SQLException: Failed to open the referenced table 'user'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.TableImpl.createForeignKeys(TableImpl.java:516)
+	at org.datanucleus.store.rdbms.table.TableImpl.createConstraints(TableImpl.java:419)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3653)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+java.sql.SQLException: Failed to open the referenced table 'user'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.TableImpl.createForeignKeys(TableImpl.java:516)
+	at org.datanucleus.store.rdbms.table.TableImpl.createConstraints(TableImpl.java:419)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3653)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+java.sql.SQLException: Failed to open the referenced table 'user'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.TableImpl.createForeignKeys(TableImpl.java:516)
+	at org.datanucleus.store.rdbms.table.TableImpl.createConstraints(TableImpl.java:419)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3653)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+java.sql.SQLException: Failed to open the referenced table 'user'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.datasource.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+	at org.datanucleus.store.rdbms.table.AbstractTable.executeDdlStatement(AbstractTable.java:860)
+	at org.datanucleus.store.rdbms.table.TableImpl.createForeignKeys(TableImpl.java:516)
+	at org.datanucleus.store.rdbms.table.TableImpl.createConstraints(TableImpl.java:419)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.performTablesValidation(RDBMSStoreManager.java:3653)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager$ClassAdder.run(RDBMSStoreManager.java:3095)
+	at org.datanucleus.store.rdbms.AbstractSchemaTransaction.execute(AbstractSchemaTransaction.java:118)
+	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
+	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+21:41:42,131 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+21:41:42,782 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,803 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,803 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,821 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,821 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,861 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,861 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,907 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,907 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,930 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,930 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,931 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,953 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,953 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,953 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,971 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,971 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:42,971 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:43,000 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:43,030 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:43,030 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:43,030 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:43,030 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:43,030 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:43,095 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:43,095 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:43,095 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:43,095 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+21:41:44,807 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+21:50:43,965 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+21:51:08,128 (RMI TCP Connection(2)-192.168.0.144) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+21:54:13,113 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+21:54:32,982 (RMI TCP Connection(2)-192.168.0.144) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+21:57:22,381 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+21:57:50,150 (RMI TCP Connection(3)-192.168.0.144) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+22:07:10,533 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+22:07:37,508 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+22:07:37,993 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,012 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,012 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,029 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,029 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,047 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,047 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,074 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,074 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,148 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,148 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,148 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,177 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,177 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,177 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,199 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,199 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,199 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,229 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,261 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,261 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,261 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,261 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,261 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,322 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,322 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,322 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:07:38,322 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:08:01,611 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+22:08:03,242 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+22:27:48,519 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+22:28:05,059 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+22:28:06,679 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+22:28:20,168 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+22:28:32,163 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+22:28:32,562 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,577 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,577 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,592 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,592 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,607 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,607 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,623 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,623 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,641 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,641 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,641 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,684 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,684 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,684 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,742 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,742 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,743 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,771 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,816 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,816 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,816 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,816 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,816 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,879 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,879 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,879 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:32,879 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+22:28:34,357 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers

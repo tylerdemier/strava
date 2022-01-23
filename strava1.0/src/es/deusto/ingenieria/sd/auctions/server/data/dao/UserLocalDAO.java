@@ -75,7 +75,7 @@ public class UserLocalDAO extends DataAccessObjectBase implements IDataAccessObj
 		try {
 			tx.begin();
 			
-			Query<?> query = pm.newQuery("SELECT FROM " + User.class.getName() + " WHERE email == '" + param + "'");
+			Query<?> query = pm.newQuery("SELECT FROM " + User.class.getName() + " WHERE nickname == '" + param + "'");
 			query.setUnique(true);
 			result = (User) query.execute();
 			

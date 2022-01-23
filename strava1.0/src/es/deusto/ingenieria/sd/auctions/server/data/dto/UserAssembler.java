@@ -9,6 +9,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.TipoUsuario;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
+import es.deusto.ingenieria.sd.auctions.server.services.ErAppService;
 
 //This class is part of the DTO pattern. It also implements Singleton Pattern.
 public class UserAssembler {
@@ -24,7 +25,7 @@ public class UserAssembler {
 		return instance;
 	}
 
-	public UserDTO userToDTO(User user) {
+	public UserDTO userToDTO(User user, ErAppService er) {
 		UserDTO dto = new UserDTO();
 		
 		dto.setEmail(user.getEmail());
@@ -45,9 +46,9 @@ public class UserAssembler {
 		dto.setEntrenamientos(listaEntreno);
 
 		System.out.println("*AQUI 1*");	
-		List<RetoDTO> listaretos = new ArrayList<>();
+		List<RetoAceptadoDTO> listaretos = new ArrayList<>();
 		for (Reto reto : user.getRetosAceptados()) {
-			RetoDTO rDTO = new RetoDTO();
+			RetoAceptadoDTO rDTO = new RetoAceptadoDTO();
 			rDTO.setTitulo(reto.getTitulo());
 			rDTO.setDescripcion(reto.getDescripcion());
 			rDTO.setDeporte(reto.getDeporte());
@@ -55,13 +56,14 @@ public class UserAssembler {
 			rDTO.setCreador(dto);
 			rDTO.setFechaFin(reto.getFechaFin());
 			rDTO.setFechaInicio(reto.getFechaInicio());
-			rDTO.setPorcentaje(reto.getPorcentaje());
+			rDTO.setPorcentajeCompletado(er.calcularEstado(rDTO, dto));
 			listaretos.add(rDTO);
 		}
 		
 		dto.setRetosAceptados(listaretos);
 		System.out.println("*AQUI 2*");	
-
+		System.out.println("Info: ");
+		System.out.print(user.getNickname());
 		if(user.getTipoUsuario().equals(TipoUsuario.GOOGLE)) {
 			dto.setTipoUsuario(TipoUsuarioDTO.GOOGLE);
 		} else if(user.getTipoUsuario().equals(TipoUsuario.EMAIL)) {

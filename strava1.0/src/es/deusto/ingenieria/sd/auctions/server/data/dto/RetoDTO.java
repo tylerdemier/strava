@@ -14,17 +14,6 @@ public class RetoDTO implements Serializable {
 	private String fechaFin;
 	private long objetivo;	
 	private UserDTO creador;	
-	private float porcentaje;
-	
-	
-
-	public float getPorcentaje() {
-		return porcentaje;
-	}
-
-	public void setPorcentaje(float porcentaje) {
-		this.porcentaje = porcentaje;
-	}
 
 	public String getTitulo() {
 		return titulo;

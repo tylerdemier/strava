@@ -9,6 +9,7 @@ import es.deusto.ingenieria.sd.auctions.server.data.dao.UserDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.dao.UserLocalDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
+import es.deusto.ingenieria.sd.auctions.server.data.domain.RetoAceptado;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.TipoUsuario;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.UserLocal;
@@ -32,7 +33,7 @@ public class MainProgram {
 		String name = "//" + args[0] + ":" + args[1] + "/" + args[2];		
 	
 		//Inicializar DB
-		initDB();
+//		initDB();
 		
 		//Bind remote facade instance to a sirvice name using RMIRegistry
 		try {
@@ -132,7 +133,7 @@ public class MainProgram {
 			user0.setRpm(0);
 			user0.setTipoUsuario(TipoUsuario.EMAIL);
 			user0.setEntrenamientos(entrenamientos);
-			List<Reto> retosAceptados = new ArrayList<Reto>();
+			List<RetoAceptado> retosAceptados = new ArrayList<RetoAceptado>();
 			user0.setRetosAceptados(retosAceptados);
 			
 			User user1 = new User();		
@@ -144,7 +145,7 @@ public class MainProgram {
 			user1.setFreqcardireposo(0);;
 			user1.setRpm(0);
 			user1.setEntrenamientos(entrenamientos2);
-			List<Reto> retosAceptados2 = new ArrayList<Reto>();
+			List<RetoAceptado> retosAceptados2 = new ArrayList<RetoAceptado>();
 			user1.setRetosAceptados(retosAceptados2);
 			user1.setTipoUsuario(TipoUsuario.GOOGLE);
 			
@@ -157,7 +158,7 @@ public class MainProgram {
 			user2.setFreqcardireposo(0);;
 			user2.setRpm(0);
 			user2.setEntrenamientos(entrenamientos3);
-			List<Reto> retosAceptados3 = new ArrayList<Reto>();
+			List<RetoAceptado> retosAceptados3 = new ArrayList<RetoAceptado>();
 			user2.setRetosAceptados(retosAceptados3);
 			user2.setTipoUsuario(TipoUsuario.FACEBOOK);
 					

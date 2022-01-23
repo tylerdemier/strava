@@ -27,7 +27,7 @@ public class User {
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();
 
 	@Persistent(defaultFetchGroup="true")
-	private List<Reto> retosAceptados = new ArrayList<>();
+	private List<RetoAceptado> retosAceptados = new ArrayList<>();
 	
 	public String getNickname() {
 		return nickname;
@@ -52,11 +52,11 @@ public class User {
 		this.email = email;
 	}
 
-	public List<Reto> getRetosAceptados() {
+	public List<RetoAceptado> getRetosAceptados() {
 		return retosAceptados;
 	}
 
-	public void setRetosAceptados(List<Reto> retosAceptados) {
+	public void setRetosAceptados(List<RetoAceptado> retosAceptados) {
 		this.retosAceptados = retosAceptados;
 	}
 

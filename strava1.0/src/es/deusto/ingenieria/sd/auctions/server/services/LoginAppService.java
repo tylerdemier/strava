@@ -10,11 +10,13 @@ import javax.swing.JOptionPane;
 import es.deusto.ingenieria.sd.auctions.server.data.dao.UserDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Reto;
+import es.deusto.ingenieria.sd.auctions.server.data.domain.RetoAceptado;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.TipoUsuario;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.UserLocal;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAceptadoDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoAssembler;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.RetoDTO;
@@ -29,7 +31,7 @@ public class LoginAppService {
 
 	private UserAssembler assamblerUser = new UserAssembler();
 	private EntrenamientoAssembler assemblerEntrenamiento = new EntrenamientoAssembler();
-	private RetoAssembler assemblerReto = new RetoAssembler();
+	private RetoAceptadoAssembler assemblerReto = new RetoAceptadoAssembler();
 	private GoogleServiceGateway registerServiceGateway = new GoogleServiceGateway();
 	private FacebookSocketClient client = new FacebookSocketClient("0.0.0.0", 35600);
 
@@ -42,7 +44,7 @@ public class LoginAppService {
 			u.setNickname(nickName);
 			List<Entrenamiento> edto = new ArrayList<>();
 			u.setEntrenamientos(edto);
-			List<Reto> rdto = new ArrayList<>();
+			List<RetoAceptado> rdto = new ArrayList<>();
 			u.setRetosAceptados(rdto);
 			return u;
 		} else if(tipoUsuarioDTO.equals(TipoUsuarioDTO.EMAIL)){
@@ -52,7 +54,7 @@ public class LoginAppService {
 			u.setPassword(password);
 			List<Entrenamiento> edto = new ArrayList<>();
 			u.setEntrenamientos(edto);
-			List<Reto> rdto = new ArrayList<>();
+			List<RetoAceptado> rdto = new ArrayList<>();
 			u.setRetosAceptados(rdto);
 			return u;
 		}
@@ -115,10 +117,9 @@ public class LoginAppService {
 		UserDTO userQueVaASerRellenado = new UserDTO();
 
 		for (User usuario : UserDAO.getInstance().getAll()) {
-			if(usuario.getTipoUsuario() == TipoUsuario.EMAIL) {
+			if(usuario.getTipoUsuario().equals(TipoUsuario.EMAIL)) {
 				UserLocal u = (UserLocal) usuario;
 				if(u.getEmail().matches(email) && u.checkPassword(password)) {
-
 					userQueVaASerRellenado.setEmail(u.getEmail());
 					userQueVaASerRellenado.setNickname(u.getNickname());
 					List<EntrenamientoDTO> entrenamientosDTO = new ArrayList<>();
@@ -127,15 +128,15 @@ public class LoginAppService {
 					}
 					userQueVaASerRellenado.setEntrenamientos(entrenamientosDTO);
 					userQueVaASerRellenado.setTipoUsuario(TipoUsuarioDTO.EMAIL);
-					List<RetoDTO> retosAceptadosDTO = new ArrayList<>();
-					for (Reto r : u.getRetosAceptados()) {
-						retosAceptadosDTO.add(assemblerReto.retoToDTO(r));
+					List<RetoAceptadoDTO> retosAceptadosDTO = new ArrayList<>();
+					for (RetoAceptado r : u.getRetosAceptados()) {
+						retosAceptadosDTO.add(assemblerReto.retoAceptadoToDTO(r));
 					}
 					userQueVaASerRellenado.setRetosAceptados(retosAceptadosDTO);
 					userQueVaASerRellenado.setTipoUsuario(TipoUsuarioDTO.EMAIL);
 					return userQueVaASerRellenado;
 				}
-			} else if(usuario.getTipoUsuario() == TipoUsuario.GOOGLE) {
+			} else if(usuario.getTipoUsuario().equals(TipoUsuario.GOOGLE)) {
 				if(registerServiceGateway.checkCuenta(email, password) && email.matches(usuario.getEmail())) {
 //					System.out.println("==== LLEGO 5 ====");
 //					System.out.println("Email:" + email);
@@ -150,14 +151,14 @@ public class LoginAppService {
 					}
 					userQueVaASerRellenado.setEntrenamientos(entrenamientosDTO);
 					userQueVaASerRellenado.setTipoUsuario(TipoUsuarioDTO.GOOGLE);
-					List<RetoDTO> retosAceptadosDTO = new ArrayList<>();
-					for (Reto r : usuario.getRetosAceptados()) {
-						retosAceptadosDTO.add(assemblerReto.retoToDTO(r));
+					List<RetoAceptadoDTO> retosAceptadosDTO = new ArrayList<>();
+					for (RetoAceptado r : usuario.getRetosAceptados()) {
+						retosAceptadosDTO.add(assemblerReto.retoAceptadoToDTO(r));
 					}
 					userQueVaASerRellenado.setRetosAceptados(retosAceptadosDTO);
 					return userQueVaASerRellenado;
 				}
-			} else if (usuario.getTipoUsuario() == TipoUsuario.FACEBOOK) {
+			} else if (usuario.getTipoUsuario().equals(TipoUsuario.FACEBOOK)) {
 				if(client.checkCuenta(email, password)) {
 					userQueVaASerRellenado.setEmail(usuario.getEmail());
 					userQueVaASerRellenado.setNickname(usuario.getNickname());
@@ -167,9 +168,9 @@ public class LoginAppService {
 					}
 					userQueVaASerRellenado.setEntrenamientos(entrenamientosDTO);
 					userQueVaASerRellenado.setTipoUsuario(TipoUsuarioDTO.FACEBOOK);
-					List<RetoDTO> retosAceptadosDTO = new ArrayList<>();
-					for (Reto r : usuario.getRetosAceptados()) {
-						retosAceptadosDTO.add(assemblerReto.retoToDTO(r));
+					List<RetoAceptadoDTO> retosAceptadosDTO = new ArrayList<>();
+					for (RetoAceptado r : usuario.getRetosAceptados()) {
+						retosAceptadosDTO.add(assemblerReto.retoAceptadoToDTO(r));
 					}
 					userQueVaASerRellenado.setRetosAceptados(retosAceptadosDTO);
 					return userQueVaASerRellenado;
@@ -182,7 +183,7 @@ public class LoginAppService {
 	}
 	
 	
-	public UserDTO actualizarUser(UserDTO u) {
+	public UserDTO actualizarUser(UserDTO u, ErAppService er) {
 		User usuario = new User();
 		System.out.println("++++++ LLEGO "+u.getNickname()+" ++++++");
 		for (User user : UserDAO.getInstance().getAll()) {
@@ -208,8 +209,8 @@ public class LoginAppService {
 	
 		usuario.setRetosAceptados(new ArrayList<>());
 		System.out.println("++++++ LLEGO 2 ++++++");
-		for (RetoDTO rDTO : u.getRetosAceptados()) {
-			Reto r = new Reto();
+		for (RetoAceptadoDTO rDTO : u.getRetosAceptados()) {
+			RetoAceptado r = new RetoAceptado();
 			User creador = new User();
 			creador.setNickname(rDTO.getCreador().getNickname());
 			r.setCreador(creador);
@@ -219,6 +220,7 @@ public class LoginAppService {
 			r.setFechaInicio(rDTO.getFechaInicio());
 			r.setObjetivo(rDTO.getObjetivo());
 			r.setTitulo(rDTO.getTitulo());
+			r.setPorcentaje(rDTO.getPorcentajeCompletado());
 			usuario.getRetosAceptados().add(r);
 		}
 		System.out.println("++++++ LLEGO 3 ++++++");
@@ -234,7 +236,7 @@ public class LoginAppService {
 		}
 		
 		
-		return uA.userToDTO(usuario);	
+		return uA.userToDTO(usuario, er);	
 	}
 
 
