@@ -225,11 +225,12 @@ public class ErAppService {
 		}
 		System.out.println("&&&&& AQUI 1 &&&&&");
 		System.out.println(usuario.getNickname());
-//		Reto reto = RetoDAO.getInstance().find(retoAAceptar.getTitulo());
+
 		Reto reto = new Reto();
 		for (Reto r : RetoDAO.getInstance().getAll()) {
 			if(r.getTitulo().matches(retoAAceptar.getTitulo())) {
 				reto = r;
+//				RetoDAO.getInstance().delete(reto);	Este si lo borras no se duplica, pero ñeh
 			}
 		}
 		System.out.println("&&&&& AQUI 2 &&&&&");
@@ -253,6 +254,7 @@ public class ErAppService {
 			usuario.setRetosAceptados(retosArray);
 		}
 		System.out.println("&&&&& AQUI 2.3 &&&&&");
+		
 		RetoAceptadoDAO.getInstance().save(rA);
 		
 		
