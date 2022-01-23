@@ -27,7 +27,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	
 	//TODO: Remove this instances when Singleton Pattern is implemented
 	private LoginAppService loginService = new LoginAppService();
-	private ErAppService bidService = new ErAppService();
+	private ErAppService erService = new ErAppService();
 
 	public RemoteFacade() throws RemoteException {
 		super();		
@@ -68,13 +68,13 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 	@Override
 	public ArrayList<RetoDTO> getRetos(String deporte) throws RemoteException {
-		ArrayList<RetoDTO> a = bidService.getRetos(deporte);
+		ArrayList<RetoDTO> a = erService.getRetos(deporte);
 		return a;
 	}
 
 	@Override
-	public float calcularEstado(RetoAceptadoDTO reto, UserDTO user) throws RemoteException {
-		return bidService.calcularEstado(reto, user);
+	public float calcularEstado(RetoDTO reto, UserDTO user) throws RemoteException {
+		return erService.calcularEstado(reto, user);
 	}
 
 	@Override
@@ -85,14 +85,14 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	@Override
 	public List<EntrenamientoDTO> crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia,
 			String horaIni, int duracion) {
-		return bidService.crearEntrenamiento(usuarioDTO, deporte, titulo, fechaIni, distancia, horaIni, duracion);
+		return erService.crearEntrenamiento(usuarioDTO, deporte, titulo, fechaIni, distancia, horaIni, duracion);
 		
 	}
 
 	@Override
 	public void crearReto(UserDTO user, String deporte, String titulo, String descripcion, String fechaIni,
 			String fechaFin, int objetivo) {
-		bidService.crearReto(user, deporte, titulo, descripcion, fechaIni, fechaFin, objetivo);
+		erService.crearReto(user, deporte, titulo, descripcion, fechaIni, fechaFin, objetivo);
 		
 	}
 
@@ -106,6 +106,11 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	@Override
 	public UserDTO actualizarUser(UserDTO u) throws RemoteException {
 		return loginService.actualizarUser(u);
+	}
+
+	@Override
+	public UserDTO aceptarReto(UserDTO userDTO, RetoDTO retoAAceptar) throws RemoteException {
+		return erService.aceptarReto(userDTO, retoAAceptar);
 	}
 
 	

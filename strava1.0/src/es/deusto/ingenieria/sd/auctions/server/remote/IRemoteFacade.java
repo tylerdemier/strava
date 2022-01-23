@@ -27,7 +27,7 @@ public interface IRemoteFacade extends Remote {
 	
 	public UserDTO getCheckedUsuario(String email, String password) throws RemoteException;
 			
-	public float calcularEstado(RetoAceptadoDTO reto, UserDTO user) throws RemoteException;
+	public float calcularEstado(RetoDTO reto, UserDTO user) throws RemoteException;
 	
 	public List<EntrenamientoDTO> crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion)  throws RemoteException;
 	
@@ -36,4 +36,6 @@ public interface IRemoteFacade extends Remote {
 	public void crearUsuario(TipoUsuarioDTO tipo, String email, String nickname, String password, int alt, int fcm, int fcr, int peso, int rpm)  throws RemoteException;
 	
 	public UserDTO actualizarUser(UserDTO u) throws RemoteException;
+	
+	public UserDTO aceptarReto(UserDTO userDTO, RetoDTO retoAAceptar) throws RemoteException;
 }

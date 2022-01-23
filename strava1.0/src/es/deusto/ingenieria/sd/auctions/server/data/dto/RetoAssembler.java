@@ -31,6 +31,7 @@ public class RetoAssembler {
 		dto.setFechaInicio(reto.getFechaInicio());
 		dto.setFechaFin(reto.getFechaFin());
 		dto.setDescripcion(reto.getDescripcion());
+		dto.setPorcentaje(reto.getPorcentaje());
 		
 		return dto;
 	}

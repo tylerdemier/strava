@@ -45,9 +45,9 @@ public class UserAssembler {
 		dto.setEntrenamientos(listaEntreno);
 
 		System.out.println("*AQUI 1*");	
-		List<RetoAceptadoDTO> listaretos = new ArrayList<>();
+		List<RetoDTO> listaretos = new ArrayList<>();
 		for (Reto reto : user.getRetosAceptados()) {
-			RetoAceptadoDTO rDTO = new RetoAceptadoDTO();
+			RetoDTO rDTO = new RetoDTO();
 			rDTO.setTitulo(reto.getTitulo());
 			rDTO.setDescripcion(reto.getDescripcion());
 			rDTO.setDeporte(reto.getDeporte());
@@ -55,21 +55,19 @@ public class UserAssembler {
 			rDTO.setCreador(dto);
 			rDTO.setFechaFin(reto.getFechaFin());
 			rDTO.setFechaInicio(reto.getFechaInicio());
+			rDTO.setPorcentaje(reto.getPorcentaje());
 			listaretos.add(rDTO);
 		}
 		
 		dto.setRetosAceptados(listaretos);
 		System.out.println("*AQUI 2*");	
-		switch (user.getTipoUsuario()) {
-		case EMAIL: {
-			dto.setTipoUsuario(TipoUsuarioDTO.EMAIL);
-		}
-		case GOOGLE: {
+
+		if(user.getTipoUsuario().equals(TipoUsuario.GOOGLE)) {
 			dto.setTipoUsuario(TipoUsuarioDTO.GOOGLE);
-		}
-		case FACEBOOK: {
+		} else if(user.getTipoUsuario().equals(TipoUsuario.EMAIL)) {
+			dto.setTipoUsuario(TipoUsuarioDTO.EMAIL);
+		} else if(user.getTipoUsuario().equals(TipoUsuario.FACEBOOK)) {
 			dto.setTipoUsuario(TipoUsuarioDTO.FACEBOOK);
-		}
 		}
 		
 		System.out.println("*AQUI 3*");	

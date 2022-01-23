@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import es.deusto.ingenieria.sd.auctions.server.data.dao.EntrenamientoDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.dao.RetoDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.dao.UserDAO;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Entrenamiento;
@@ -65,7 +66,7 @@ public class ErAppService {
 	}
 
 
-	public float calcularEstado(RetoAceptadoDTO reto, UserDTO user) {
+	public float calcularEstado(RetoDTO reto, UserDTO user) {
 		float resultado = 0;	
 
 
@@ -111,6 +112,16 @@ public class ErAppService {
 				return resultado;
 			}
 		}
+		
+		//Guardar en BD
+		for (Reto r : RetoDAO.getInstance().getAll()) {
+			if(r.getTitulo().matches(reto.getTitulo())) {
+				RetoDAO.getInstance().delete(r);
+				reto.setPorcentaje(resultado);
+				RetoDAO.getInstance().save(r);
+			}
+		}	
+		
 		return resultado;
 	}
 
@@ -145,16 +156,11 @@ public class ErAppService {
 
 	public List<EntrenamientoDTO> crearEntrenamiento(UserDTO usuarioDTO, String deporte, String titulo, String fechaIni, int distancia, String horaIni, int duracion) {
 		User u = new User();
-		u = UserDAO.getInstance().find(usuarioDTO.getNickname());
-		
 		for (User user : UserDAO.getInstance().getAll()) {
 			if(user.getNickname().matches(usuarioDTO.getNickname())) {
 				u = user;
 			}
 		}
-		
-		UserDAO.getInstance().delete(UserDAO.getInstance().find(usuarioDTO.getNickname()));
-
 		Entrenamiento e2 = new Entrenamiento();
 		e2.setDeporte(deporte);
 		e2.setDistancia(distancia);
@@ -162,37 +168,99 @@ public class ErAppService {
 		e2.setFechaIni(fechaIni);
 		e2.setHoraIni(horaIni);
 		e2.setTitulo(titulo);
-
 		u.getEntrenamientos().add(e2);
-	
+		EntrenamientoDAO.getInstance().save(e2);
 		UserDAO.getInstance().save(u);
-		
-		//NotWorking???S
-		EntrenamientoAssembler eA = new EntrenamientoAssembler(); 
-		ArrayList<EntrenamientoDTO> arrayASettear = new ArrayList<>();
-			for (Entrenamiento e : u.getEntrenamientos()) {
-				arrayASettear.add(eA.entrenamientoToDTO(e));
-				System.out.println("____"+e.getTitulo()+"____");
-		}
-//		usuarioDTO.setEntrenamientos(arrayASettear);
-		
-		return arrayASettear;
-		
 
-//		for (User user : UserDAO.getInstance().getAll()) {
-//			System.out.println("Al Guardar: " + user.getNickname());
-//			for (Entrenamiento e : user.getEntrenamientos()) {
-//				System.out.println("	Definitvo: " + e.getTitulo());
-//			}
-//		}
-		
+
+		EntrenamientoAssembler eA = new EntrenamientoAssembler();
+		ArrayList<EntrenamientoDTO> arrayASettear = new ArrayList<>();
+		for (Entrenamiento e : u.getEntrenamientos()) {
+			arrayASettear.add(eA.entrenamientoToDTO(e));
+		}
+		return arrayASettear;
+
 	}
 
-	
-	
-	
-	
-	
+
+	public void actualizarBD(List<Reto> retos, List<Entrenamiento> entrenamientos, List<User> usuarios) {
+
+		for (Reto r : RetoDAO.getInstance().getAll()) {
+			RetoDAO.getInstance().delete(r);
+		}
+
+		for (Entrenamiento e : EntrenamientoDAO.getInstance().getAll()) {
+			EntrenamientoDAO.getInstance().delete(e);
+		}
+
+		for (User user : UserDAO.getInstance().getAll()) {
+			UserDAO.getInstance().delete(user);
+		}
+
+		for (Entrenamiento e : entrenamientos) {
+			EntrenamientoDAO.getInstance().save(e);
+		}
+
+		for (Reto r : retos) {
+			RetoDAO.getInstance().save(r);
+		}
+
+		for (User user : usuarios) {
+			UserDAO.getInstance().save(user);
+		}
+
+	}
+
+
+	public UserDTO aceptarReto(UserDTO userDTO, RetoDTO retoAAceptar) {
+		System.out.println("&&&&& AQUI 0 &&&&&");
+		System.out.println(userDTO.getNickname());
+		User usuario = UserDAO.getInstance().find(userDTO.getNickname());
+		for (User user : UserDAO.getInstance().getAll()) {
+			if(userDTO.getNickname().matches(user.getNickname())) {
+				usuario = user;
+			}
+		}
+		System.out.println("&&&&& AQUI 1 &&&&&");
+		System.out.println(usuario.getNickname());
+//		Reto reto = RetoDAO.getInstance().find(retoAAceptar.getTitulo());
+		Reto reto = new Reto();
+		for (Reto r : RetoDAO.getInstance().getAll()) {
+			if(r.getTitulo().matches(retoAAceptar.getTitulo())) {
+				reto = r;
+			}
+		}
+		System.out.println("&&&&& AQUI 2 &&&&&");
+		if(usuario.getRetosAceptados() != null) {
+			System.out.println("&&&&& AQUI 2.0 &&&&&");
+			usuario.getRetosAceptados().add(reto);
+		} else {
+			List<Reto> retosArray = new ArrayList<>();
+			System.out.println("&&&&& AQUI 2.2 &&&&&");
+			retosArray.add(reto);
+			System.out.println("&&&&& AQUI 2.3 &&&&&");
+			usuario.setRetosAceptados(retosArray);
+
+		}
+		System.out.println("&&&&& AQUI 3 &&&&&");
+//		UserDAO.getInstance().delete(UserDAO.getInstance().find(userDTO.getNickname()));
+		System.out.println("&&&&& AQUI 4 &&&&&");
+		UserDAO.getInstance().save(usuario);
+		System.out.println("&&&&& AQUI 5 &&&&&");
+
+		UserAssembler uA = new UserAssembler();
+		UserDTO usuarioFinal;
+		System.out.println("&&&&& AQUI 6 &&&&&");
+		usuarioFinal = uA.userToDTO(usuario);
+		System.out.println("&&&&& AQUI 7 &&&&&");
+		return usuarioFinal;
+	}
+
+
+
+
+
+
 
 
 

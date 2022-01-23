@@ -17,7 +17,6 @@ public class User {
 	private String nickname;
 	private String email;
 	private TipoUsuario tipoUsuario;
-	private List<Reto> retosAceptados = new ArrayList<>();
 	private float peso;
 	private float altura;
 	private float freqcardiacamax;
@@ -27,7 +26,9 @@ public class User {
 	@Persistent(defaultFetchGroup="true")
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();
 
-
+	@Persistent(defaultFetchGroup="true")
+	private List<Reto> retosAceptados = new ArrayList<>();
+	
 	public String getNickname() {
 		return nickname;
 	}
@@ -51,7 +52,7 @@ public class User {
 		this.email = email;
 	}
 
-		public List<Reto> getRetosAceptados() {
+	public List<Reto> getRetosAceptados() {
 		return retosAceptados;
 	}
 

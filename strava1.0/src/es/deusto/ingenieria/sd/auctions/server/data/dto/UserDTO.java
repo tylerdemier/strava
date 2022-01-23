@@ -17,22 +17,24 @@ public class UserDTO implements Serializable {
 	private String nickname;
 	private String email;
 	private TipoUsuarioDTO tipoUsuario;
-	private List<RetoAceptadoDTO> retosAceptados = new ArrayList<>();
+	private List<RetoDTO> retosAceptados = new ArrayList<>();
 	private List<EntrenamientoDTO> entrenamientos = new ArrayList<>();
-	
 
-	public List<RetoAceptadoDTO> getRetosAceptados() {
+
+	public List<RetoDTO> getRetosAceptados() {
 		return retosAceptados;
 	}
 
-	public void setRetosAceptados(List<RetoAceptadoDTO> retosAceptados) {
+
+	public void setRetosAceptados(List<RetoDTO> retosAceptados) {
 		this.retosAceptados = retosAceptados;
 	}
 
-	public ArrayList<RetoAceptadoDTO> getRetosD(String deporte) {
-		ArrayList<RetoAceptadoDTO> retosArray = new ArrayList<>();
+
+	public ArrayList<RetoDTO> getRetosD(String deporte) {
+		ArrayList<RetoDTO> retosArray = new ArrayList<>();
 				
-		for (RetoAceptadoDTO e : this.getRetosAceptados()) {
+		for (RetoDTO e : this.getRetosAceptados()) {
 			if (e.getDeporte().equalsIgnoreCase(deporte)) {
 				retosArray.add(e);
 			}

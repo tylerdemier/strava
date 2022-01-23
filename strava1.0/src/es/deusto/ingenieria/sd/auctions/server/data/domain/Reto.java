@@ -17,10 +17,21 @@ public class Reto {
 	private String fechaInicio;
 	private String fechaFin;
 	private long objetivo;	
+	private float porcentaje;
 	
 	@Persistent(defaultFetchGroup="true")
 	private User creador;	
 	
+	
+	
+	public float getPorcentaje() {
+		return porcentaje;
+	}
+
+	public void setPorcentaje(float porcentaje) {
+		this.porcentaje = porcentaje;
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
